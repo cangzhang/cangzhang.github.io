@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>开发环境配置——源码同步 | 未必博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文地址：http://www.just-for-you.org/blog/phone/phone-document/2606.html
+注意：如非特殊说明，前几节的都是先执行“sudo -i”，在Root权限下执行。
+安装Repo：
+放置Repo目录：
+mkdir ~/bin
+//首先建立目录：
+PATH=~/bin:$PATH
+//设置环境变量
+为了方便起见，我是选择直接把Repo放进了/bi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发环境配置——源码同步">
+<meta property="og:url" content="http://cangzhang.github.io/2012/01/25/e5bc80e58f91e78eafe5a283e9858de7bdae-e6ba90e7a081e5908ce6ada5/">
+<meta property="og:site_name" content="未必博客">
+<meta property="og:description" content="原文地址：http://www.just-for-you.org/blog/phone/phone-document/2606.html
+注意：如非特殊说明，前几节的都是先执行“sudo -i”，在Root权限下执行。
+安装Repo：
+放置Repo目录：
+mkdir ~/bin
+//首先建立目录：
+PATH=~/bin:$PATH
+//设置环境变量
+为了方便起见，我是选择直接把Repo放进了/bi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发环境配置——源码同步">
+<meta name="twitter:description" content="原文地址：http://www.just-for-you.org/blog/phone/phone-document/2606.html
+注意：如非特殊说明，前几节的都是先执行“sudo -i”，在Root权限下执行。
+安装Repo：
+放置Repo目录：
+mkdir ~/bin
+//首先建立目录：
+PATH=~/bin:$PATH
+//设置环境变量
+为了方便起见，我是选择直接把Repo放进了/bi">
+
+  
+    <link rel="alternative" href="/atom.xml" title="未必博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">未必博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Where cangzhang makes it.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://cangzhang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-e5bc80e58f91e78eafe5a283e9858de7bdae-e6ba90e7a081e5908ce6ada5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/01/25/e5bc80e58f91e78eafe5a283e9858de7bdae-e6ba90e7a081e5908ce6ada5/" class="article-date">
+  <time datetime="2012-01-25T04:30:22.000Z" itemprop="datePublished">1月 25 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android转载/">Android转载</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开发环境配置——源码同步
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文地址：<a href="http://www.just-for-you.org/blog/phone/phone-document/2606.html" target="_blank" rel="external">http://www.just-for-you.org/blog/phone/phone-document/2606.html</a></p>
+<p>注意：如非特殊说明，前几节的都是先执行“sudo -i”，在Root权限下执行。</p>
+<h1 id="安装Repo：">安装Repo：</h1>
+<p>放置Repo目录：</p>
+<p><code>mkdir ~/bin
+//首先建立目录：
+PATH=~/bin:$PATH
+//设置环境变量</code></p>
+<p>为了方便起见，我是选择直接把Repo放进了/bin目录，因此要是像我一样图方便，可以省略这一步。</p>
+<p>下载Repo:</p>
+<p><code>curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo &amp;gt; ~/bin/repo
+//下载Repo到bin目录
+chmod a+x ~/bin/repo
+//给予运行权限</code></p>
+<p>如果是和我一样偷懒的话，这里的代码应该是这样：<br><code>$ curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo &amp;gt; /bin/repo
+//直接放进/bin目录
+$ chmod a+x /bin/repo
+//给repo运行权限</code></p>
+<p>设置Repo:</p>
+<p><code>mkdir WORKING_DIRECTORY
+//建立一个工作目录：
+cd WORKING_DIRECTORY
+//切换到该目录</code></p>
+<p>本人的做法是：<br><code>$ cd /home //先切换到/home目录
+$ mkdir android //然后建立android工作目录
+$ cd android //然后切换到该目录</code></p>
+<p>下载GIT文件，配置repo：</p>
+<p><code>repo init -u https://android.googlesource.com/platform/manifest
+//这一步设置工作目录中的repo源
+repo init -u https://android.googlesource.com/platform/manifest -b android-4.0.1_r1
+//选择下载的版本是android4.0</code><br>这里应该会问你什么用户名啊之类的，建议填写你的个人ID，另外邮箱最好是一个真实的google账户的名称，问题应该不大吧。</p>
+<p>开始同步源码：<br><code>repo sync
+//开始同步源码</code></p>
+<p><strong>验证GIT，导入密钥：</strong><br>下载GnuPG v1.4.2.2 (GNU/Linux).的GnuPG key，没啥好说的，照搬Google的说明吧<br><code>gpg --import</code><br>复制粘贴没什么好解释的了，导入之后Ctrl+D就可以了，代码如下：<br><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.2.2 (GNU/Linux)
+mQGiBEnnWD4RBACt9/h4v9xnnGDou13y3dvOx6/t43LPPIxeJ8eX9WB+8LLuROSV
+lFhpHawsVAcFlmi7f7jdSRF+OvtZL9ShPKdLfwBJMNkU66/TZmPewS4m782ndtw7
+8tR1cXb197Ob8kOfQB3A9yk2XZ4ei4ZC3i6wVdqHLRxABdncwu5hOF9KXwCgkxMD
+u4PVgChaAJzTYJ1EG+UYBIUEAJmfearb0qRAN7dEoff0FeXsEaUA6U90sEoVks0Z
+wNj96SA8BL+a1OoEUUfpMhiHyLuQSftxisJxTh+2QclzDviDyaTrkANjdYY7p2cq
+/HMdOY7LJlHaqtXmZxXjjtw5Uc2QG8UY8aziU3IE9nTjSwCXeJnuyvoizl9/I1S5
+jU5SA/9WwIps4SC84ielIXiGWEqq6i6/sk4I9q1YemZF2XVVKnmI1F4iCMtNKsR4
+MGSa1gA8s4iQbsKNWPgp7M3a51JCVCu6l/8zTpA+uUGapw4tWCp4o0dpIvDPBEa9
+b/aF/ygcR8mh5hgUfpF9IpXdknOsbKCvM9lSSfRciETykZc4wrRCVGhlIEFuZHJv
+aWQgT3BlbiBTb3VyY2UgUHJvamVjdCA8aW5pdGlhbC1jb250cmlidXRpb25AYW5k
+cm9pZC5jb20+iGAEExECACAFAknnWD4CGwMGCwkIBwMCBBUCCAMEFgIDAQIeAQIX
+gAAKCRDorT+BmrEOeNr+AJ42Xy6tEW7r3KzrJxnRX8mij9z8tgCdFfQYiHpYngkI
+2t09Ed+9Bm4gmEO5Ag0ESedYRBAIAKVW1JcMBWvV/0Bo9WiByJ9WJ5swMN36/vAl
+QN4mWRhfzDOk/Rosdb0csAO/l8Kz0gKQPOfObtyYjvI8JMC3rmi+LIvSUT9806Up
+hisyEmmHv6U8gUb/xHLIanXGxwhYzjgeuAXVCsv+EvoPIHbY4L/KvP5x+oCJIDbk
+C2b1TvVk9PryzmE4BPIQL/NtgR1oLWm/uWR9zRUFtBnE411aMAN3qnAHBBMZzKMX
+LWBGWE0znfRrnczI5p49i2YZJAjyX1P2WzmScK49CV82dzLo71MnrF6fj+Udtb5+
+OgTg7Cow+8PRaTkJEW5Y2JIZpnRUq0CYxAmHYX79EMKHDSThf/8AAwUIAJPWsB/M
+pK+KMs/s3r6nJrnYLTfdZhtmQXimpoDMJg1zxmL8UfNUKiQZ6esoAWtDgpqt7Y7s
+KZ8laHRARonte394hidZzM5nb6hQvpPjt2OlPRsyqVxw4c/KsjADtAuKW9/d8phb
+N8bTyOJo856qg4oOEzKG9eeF7oaZTYBy33BTL0408sEBxiMior6b8LrZrAhkqDjA
+vUXRwm/fFKgpsOysxC6xi553CxBUCH2omNV6Ka1LNMwzSp9ILz8jEGqmUtkBszwo
+G1S8fXgE0Lq3cdDM/GJ4QXP/p6LiwNF99faDMTV3+2SAOGvytOX6KjKVzKOSsfJQ
+hN0DlsIw8hqJc0WISQQYEQIACQUCSedYRAIbDAAKCRDorT+BmrEOeCUOAJ9qmR0l
+EXzeoxcdoafxqf6gZlJZlACgkWF7wi2YLW3Oa+jv2QSTlrx4KLM=
+=Wi5D
+-----END PGP PUBLIC KEY BLOCK-----</code><br>如果要验证呢：<br><code>git tag -v TAG_NAME</code><br>这里基本就完成了，当然，要是你想要设置Ccache，还需参考原来的说明：</p>
+<blockquote>
+<p>Setting up ccache</p>
+<p>You can optionally tell the build to use the ccache compilation tool. Ccache acts as a compiler cache that can be used to speed-up rebuilds. This works very well if you do “make clean” often, or if you frequently switch between different build products.</p>
+<p>Put the following in your .bashrc or equivalent.</p>
+<p><code>export USE_CCACHE=1</code></p>
+<p>By default the cache will be stored in ~/.ccache. If your home directory is on NFS or some other non-local filesystem, you will want to specify the directory in your .bashrc as well.</p>
+<p><code>export CCACHE_DIR=</code></p>
+<p>The suggested cache size is 50-100GB. You will need to run the following command once you have downloaded the source code.</p>
+<p><code>prebuilt/linux-x86/ccache/ccache -M 50G</code></p>
+<p>This setting is stored in the CCACHE_DIR and is persistent.<br>好了，到此为止，源码同步是很辛苦的事情，我也只能这么说说了，只要足够细心，这些都很简单，用心按步骤走就可以了。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cangzhang.github.io/2012/01/25/e5bc80e58f91e78eafe5a283e9858de7bdae-e6ba90e7a081e5908ce6ada5/" data-id="wg8vk8gb0x3331nl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译Android配置/">编译Android配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/01/25/23/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Ubuntu11.10编译Android4.0
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/01/25/androide7bc96e8af91e78eafe5a283e690ade9858d/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android编译环境搭配</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android转载/">Android转载</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python学习/">python学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码/">代码</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端研究/">前端研究</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/折腾/">折腾</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/折腾/网络转载/">网络转载</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂货铺/">杂货铺</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络转载/">网络转载</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/403错误/">403错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android开发配置/">Android开发配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD安装/">AutoCAD安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD错误/">AutoCAD错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BIOS/">BIOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BIOS刷新/">BIOS刷新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Pages建立博客/">Github Pages建立博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gmail/">Gmail</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Godaddy优惠码/">Godaddy优惠码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/M4A87T/">M4A87T</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text-3/">Sublime Text 3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-Sub-process-错误/">Ubuntu Sub-process 错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu建立程序快捷方式/">Ubuntu建立程序快捷方式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-Mail-SMTP/">WP-Mail-SMTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adblock-plus/">adblock plus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/discuz创始人权限/">discuz创始人权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-C2275/">error C2275</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jar文件不能直接双击运行/">jar文件不能直接双击运行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2-破解/">sublime text 2 破解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-破解/">sublime text 破解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webos/">webos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/修复Win-8启动/">修复Win 8启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装RTL8188CUS无线网卡驱动/">安装RTL8188CUS无线网卡驱动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件问题/">插件问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电脑配置/">电脑配置</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记本不能休眠/">笔记本不能休眠</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组装电脑/">组装电脑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译Android配置/">编译Android配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置php环境/">配置php环境</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/403错误/" style="font-size: 10.00px;">403错误</a><a href="/tags/Android开发配置/" style="font-size: 10.00px;">Android开发配置</a><a href="/tags/AutoCAD安装/" style="font-size: 10.00px;">AutoCAD安装</a><a href="/tags/AutoCAD错误/" style="font-size: 10.00px;">AutoCAD错误</a><a href="/tags/BIOS/" style="font-size: 10.00px;">BIOS</a><a href="/tags/BIOS刷新/" style="font-size: 10.00px;">BIOS刷新</a><a href="/tags/C/" style="font-size: 10.00px;">C</a><a href="/tags/Chrome/" style="font-size: 10.00px;">Chrome</a><a href="/tags/Github-Pages建立博客/" style="font-size: 10.00px;">Github Pages建立博客</a><a href="/tags/Gmail/" style="font-size: 10.00px;">Gmail</a><a href="/tags/Godaddy优惠码/" style="font-size: 10.00px;">Godaddy优惠码</a><a href="/tags/M4A87T/" style="font-size: 10.00px;">M4A87T</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/PHP/" style="font-size: 10.00px;">PHP</a><a href="/tags/Sublime-Text-3/" style="font-size: 10.00px;">Sublime Text 3</a><a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a><a href="/tags/Ubuntu-Sub-process-错误/" style="font-size: 10.00px;">Ubuntu Sub-process 错误</a><a href="/tags/Ubuntu建立程序快捷方式/" style="font-size: 10.00px;">Ubuntu建立程序快捷方式</a><a href="/tags/WP-Mail-SMTP/" style="font-size: 10.00px;">WP-Mail-SMTP</a><a href="/tags/adblock-plus/" style="font-size: 10.00px;">adblock plus</a><a href="/tags/css/" style="font-size: 10.00px;">css</a><a href="/tags/discuz创始人权限/" style="font-size: 10.00px;">discuz创始人权限</a><a href="/tags/error-C2275/" style="font-size: 10.00px;">error C2275</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/jar文件不能直接双击运行/" style="font-size: 10.00px;">jar文件不能直接双击运行</a><a href="/tags/python/" style="font-size: 10.00px;">python</a><a href="/tags/sublime-text-2/" style="font-size: 10.00px;">sublime text 2</a><a href="/tags/sublime-text-2-破解/" style="font-size: 10.00px;">sublime text 2 破解</a><a href="/tags/sublime-text-破解/" style="font-size: 10.00px;">sublime text 破解</a><a href="/tags/webos/" style="font-size: 10.00px;">webos</a><a href="/tags/修复Win-8启动/" style="font-size: 10.00px;">修复Win 8启动</a><a href="/tags/安装RTL8188CUS无线网卡驱动/" style="font-size: 10.00px;">安装RTL8188CUS无线网卡驱动</a><a href="/tags/插件问题/" style="font-size: 10.00px;">插件问题</a><a href="/tags/电脑配置/" style="font-size: 13.33px;">电脑配置</a><a href="/tags/笔记本不能休眠/" style="font-size: 10.00px;">笔记本不能休眠</a><a href="/tags/组装电脑/" style="font-size: 10.00px;">组装电脑</a><a href="/tags/编译Android配置/" style="font-size: 20.00px;">编译Android配置</a><a href="/tags/配置php环境/" style="font-size: 13.33px;">配置php环境</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07">July 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04">April 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02">February 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10">October 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08">August 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01">January 2012</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/08/22/request-certain-post-in-discuz/">获取指定DZ!X主题内容并过滤ubb标签[PHP]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/22/e8a7a3e586b3-win-8-bootmgr-is-missinge681a2e5a48d-win-8-e590afe58aa8efbc8ce4b99fe98082e794a8e4ba8ewin-7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/28/e59ca8ubuntue9878ce5889be5bbbae7a88be5ba8fe79a84e5bfabe68db7e696b9e5bc8f/">在Ubuntu里创建程序的快捷方式</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/28/e-sub-process-usrbindpkg-returned-an-error-code-1e79a84e8a7a3e586b3e696b9e6b395/">E: Sub-process /usr/bin/dpkg returned an error code (1)的解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/17/sublime-text-3-e5ae89e8a385-package-control/">Sublime Text 3 安装 Package Control</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 cangzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

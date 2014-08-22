@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu11.10编译Android4.0 | 未必博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文地址：http://www.just-for-you.org/blog/phone/phone-document/2642.html
+PS:
+ICS的官方说明是在10.04上进行的，但是，想必很多人都在用11.10吧，当然随之而来的就是各种停止、各种报错，这里我写一些我个人编译的一些经验。
+————————————————————————————————–
+关于源码下载之类的，我想我无需多做说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu11.10编译Android4.0">
+<meta property="og:url" content="http://cangzhang.github.io/2012/01/25/23/">
+<meta property="og:site_name" content="未必博客">
+<meta property="og:description" content="原文地址：http://www.just-for-you.org/blog/phone/phone-document/2642.html
+PS:
+ICS的官方说明是在10.04上进行的，但是，想必很多人都在用11.10吧，当然随之而来的就是各种停止、各种报错，这里我写一些我个人编译的一些经验。
+————————————————————————————————–
+关于源码下载之类的，我想我无需多做说">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu11.10编译Android4.0">
+<meta name="twitter:description" content="原文地址：http://www.just-for-you.org/blog/phone/phone-document/2642.html
+PS:
+ICS的官方说明是在10.04上进行的，但是，想必很多人都在用11.10吧，当然随之而来的就是各种停止、各种报错，这里我写一些我个人编译的一些经验。
+————————————————————————————————–
+关于源码下载之类的，我想我无需多做说">
+
+  
+    <link rel="alternative" href="/atom.xml" title="未必博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">未必博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Where cangzhang makes it.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://cangzhang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-23" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/01/25/23/" class="article-date">
+  <time datetime="2012-01-25T04:46:48.000Z" itemprop="datePublished">1月 25 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android转载/">Android转载</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu11.10编译Android4.0
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文地址：<a href="http://www.just-for-you.org/blog/phone/phone-document/2642.html" target="_blank" rel="external">http://www.just-for-you.org/blog/phone/phone-document/2642.html</a></p>
+<p>PS:</p>
+<p>ICS的官方说明是在10.04上进行的，但是，想必很多人都在用<a href="http://www.just-for-you.org/blog/phone/phone-document/2494.html" title="【CR-Club系列说明】开发环境配置——Ubuntu系统安装" target="_blank" rel="external">11.10</a>吧，当然随之而来的就是各种停止、各种报错，这里我写一些我个人编译的一些经验。</p>
+<p>————————————————————————————————–</p>
+<p>关于源码下载之类的，我想我无需多做说明了，需要的就去看下我写过的帖子。</p>
+<p><a href="http://www.just-for-you.org/blog/?p=2494" title="http://www.just-for-you.org/blog/?p=2494" target="_blank" rel="external">Android开发系统安装</a></p>
+<p><a href="http://www.just-for-you.org/blog/?p=2506" title="http://www.just-for-you.org/blog/?p=2506" target="_blank" rel="external">Android开发环境配置</a></p>
+<p><a href="http://blog.iquens.com/files/2709.html" title="http://blog.iquens.com/files/2709.html4" target="_blank" rel="external">Android编译环境搭配</a></p>
+<p>这里额外说一下的是，对于依赖文件的安装，务必参考我写过的或者google官方的说明，当然，你也可以试着进行编译，然后看看哪里出错，接着缺少什么安装什么就好，但是这样的，就需要重复很多次，所以我再复制一下吧：</p>
+<blockquote>
+<p>sudo apt-get update<br>sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev lib32ncurses5-dev ia32-libs<br>x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils<br>————————————————————————————————–<br>这里不得不说的另一个问题，Ubuntu 11.10默认安装的是<a href="http://www.just-for-you.org/blog/phone/phone-document/2635.html" title="【Thonatos分享】Android编译中GCC版本问题" target="_blank" rel="external">GCC 4.6</a>).我们需要换回GCC 4.4来进行编译。</p>
+</blockquote>
+<p>帖子我也写过了，需要的话，建议点击下面的链接自己看看怎么解决这个问题。</p>
+<p><a href="http://www.just-for-you.org/blog/phone/phone-document/2635.html" title="【Thonatos分享】Android编译中GCC版本问题" target="_blank" rel="external">【Thonatos分享】Android编译中GCC版本问题</a></p>
+<p>还有一个问题是很多人老是忘记配置<a href="http://www.just-for-you.org/blog/phone/phone-document/2506.html" title="【CR-Club系列说明】开发环境配置——Ubuntu下JAVA安装及环境变量配置" target="_blank" rel="external">环境变量</a>，这里建议你不仅仅要把<a href="http://www.just-for-you.org/blog/phone/phone-document/2506.html" title="【CR-Club系列说明】开发环境配置——Ubuntu下JAVA安装及环境变量配置" target="_blank" rel="external">jdk</a>、repo等加入环境变量，更需要把适当的工具加入环境变量，</p>
+<p>如果是需要运行模拟器，建议你继续阅读我这几天发的另一篇文章：</p>
+<p><a href="http://www.just-for-you.org/blog/phone/phone-document/2638.html" title="【Thonatos分享】模拟器中运行编译好的Android" target="_blank" rel="external">【Thonatos分享】模拟器中运行编译好的Android</a></p>
+<p>&nbsp;</p>
+<p>这里补充说明一下环境变量的问题：<br>1.你可以利用gedit /etc/environment 来配置全局变量，但是有时候在以root权限执行时，会有一些问题（不在本文讨论范围内。）<br>2.你可以利用gedit ~/.bashrc 来配置个人变量（用户变量），既然说了是用户变量，你应该懂，它仅仅适用于当前用户，root的用户变量的绝对路径位置是/root/.bashrc，如果你不是以root用户运行，这个变量实际就是无效的，更详细的，建议你去阅读ubuntu的相关说明文档。</p>
+<p>————————————————————————————————–<br>这些都做好之后，当然就该试着运行一下了，</p>
+<blockquote>
+<p>cd /home/android  //这个目录是你自己设置的，要对应你自己的源码目录<br>lunch full-eng  //选择编译的版本</p>
+<p>make  -j4   //对于后面的参与，是指的你的cpu相关的参数，与编译同时使用的任务数，N为其整数倍（2个CPU，每个CPU4个核心，每核心2线程），最快的构建是在j16至j32之间，这里的参数主要影响的是编译时间。<br>解释说明：<br>user     适合用于生产的机会有限;<br>userdebug        用于调试的首选像“用户”，具有根访问权限和调试权限;<br>eng        与其他调试工具的开发配置<br>————————————————————————————————–<br>大体就是这样了，可能机器不同，遇到的问题也不同吧，根据问题查找解决方案吧。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cangzhang.github.io/2012/01/25/23/" data-id="klmbehgzw7ty8m14" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译Android配置/">编译Android配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/01/25/androide7bc96e8af91e4b8adgcce78988e69cace997aee9a298/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android编译中GCC版本问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/01/25/e5bc80e58f91e78eafe5a283e9858de7bdae-e6ba90e7a081e5908ce6ada5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">开发环境配置——源码同步</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android转载/">Android转载</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python学习/">python学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码/">代码</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端研究/">前端研究</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/折腾/">折腾</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/折腾/网络转载/">网络转载</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂货铺/">杂货铺</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络转载/">网络转载</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/403错误/">403错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android开发配置/">Android开发配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD安装/">AutoCAD安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD错误/">AutoCAD错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BIOS/">BIOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BIOS刷新/">BIOS刷新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Pages建立博客/">Github Pages建立博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gmail/">Gmail</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Godaddy优惠码/">Godaddy优惠码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/M4A87T/">M4A87T</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text-3/">Sublime Text 3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-Sub-process-错误/">Ubuntu Sub-process 错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu建立程序快捷方式/">Ubuntu建立程序快捷方式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-Mail-SMTP/">WP-Mail-SMTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adblock-plus/">adblock plus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/discuz创始人权限/">discuz创始人权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-C2275/">error C2275</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jar文件不能直接双击运行/">jar文件不能直接双击运行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2-破解/">sublime text 2 破解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-破解/">sublime text 破解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webos/">webos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/修复Win-8启动/">修复Win 8启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装RTL8188CUS无线网卡驱动/">安装RTL8188CUS无线网卡驱动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件问题/">插件问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电脑配置/">电脑配置</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记本不能休眠/">笔记本不能休眠</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组装电脑/">组装电脑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译Android配置/">编译Android配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置php环境/">配置php环境</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/403错误/" style="font-size: 10.00px;">403错误</a><a href="/tags/Android开发配置/" style="font-size: 10.00px;">Android开发配置</a><a href="/tags/AutoCAD安装/" style="font-size: 10.00px;">AutoCAD安装</a><a href="/tags/AutoCAD错误/" style="font-size: 10.00px;">AutoCAD错误</a><a href="/tags/BIOS/" style="font-size: 10.00px;">BIOS</a><a href="/tags/BIOS刷新/" style="font-size: 10.00px;">BIOS刷新</a><a href="/tags/C/" style="font-size: 10.00px;">C</a><a href="/tags/Chrome/" style="font-size: 10.00px;">Chrome</a><a href="/tags/Github-Pages建立博客/" style="font-size: 10.00px;">Github Pages建立博客</a><a href="/tags/Gmail/" style="font-size: 10.00px;">Gmail</a><a href="/tags/Godaddy优惠码/" style="font-size: 10.00px;">Godaddy优惠码</a><a href="/tags/M4A87T/" style="font-size: 10.00px;">M4A87T</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/PHP/" style="font-size: 10.00px;">PHP</a><a href="/tags/Sublime-Text-3/" style="font-size: 10.00px;">Sublime Text 3</a><a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a><a href="/tags/Ubuntu-Sub-process-错误/" style="font-size: 10.00px;">Ubuntu Sub-process 错误</a><a href="/tags/Ubuntu建立程序快捷方式/" style="font-size: 10.00px;">Ubuntu建立程序快捷方式</a><a href="/tags/WP-Mail-SMTP/" style="font-size: 10.00px;">WP-Mail-SMTP</a><a href="/tags/adblock-plus/" style="font-size: 10.00px;">adblock plus</a><a href="/tags/css/" style="font-size: 10.00px;">css</a><a href="/tags/discuz创始人权限/" style="font-size: 10.00px;">discuz创始人权限</a><a href="/tags/error-C2275/" style="font-size: 10.00px;">error C2275</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/jar文件不能直接双击运行/" style="font-size: 10.00px;">jar文件不能直接双击运行</a><a href="/tags/python/" style="font-size: 10.00px;">python</a><a href="/tags/sublime-text-2/" style="font-size: 10.00px;">sublime text 2</a><a href="/tags/sublime-text-2-破解/" style="font-size: 10.00px;">sublime text 2 破解</a><a href="/tags/sublime-text-破解/" style="font-size: 10.00px;">sublime text 破解</a><a href="/tags/webos/" style="font-size: 10.00px;">webos</a><a href="/tags/修复Win-8启动/" style="font-size: 10.00px;">修复Win 8启动</a><a href="/tags/安装RTL8188CUS无线网卡驱动/" style="font-size: 10.00px;">安装RTL8188CUS无线网卡驱动</a><a href="/tags/插件问题/" style="font-size: 10.00px;">插件问题</a><a href="/tags/电脑配置/" style="font-size: 13.33px;">电脑配置</a><a href="/tags/笔记本不能休眠/" style="font-size: 10.00px;">笔记本不能休眠</a><a href="/tags/组装电脑/" style="font-size: 10.00px;">组装电脑</a><a href="/tags/编译Android配置/" style="font-size: 20.00px;">编译Android配置</a><a href="/tags/配置php环境/" style="font-size: 13.33px;">配置php环境</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07">July 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04">April 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02">February 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10">October 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08">August 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01">January 2012</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/08/22/request-certain-post-in-discuz/">获取指定DZ!X主题内容并过滤ubb标签[PHP]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/22/e8a7a3e586b3-win-8-bootmgr-is-missinge681a2e5a48d-win-8-e590afe58aa8efbc8ce4b99fe98082e794a8e4ba8ewin-7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/28/e59ca8ubuntue9878ce5889be5bbbae7a88be5ba8fe79a84e5bfabe68db7e696b9e5bc8f/">在Ubuntu里创建程序的快捷方式</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/28/e-sub-process-usrbindpkg-returned-an-error-code-1e79a84e8a7a3e586b3e696b9e6b395/">E: Sub-process /usr/bin/dpkg returned an error code (1)的解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/17/sublime-text-3-e5ae89e8a385-package-control/">Sublime Text 3 安装 Package Control</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 cangzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[未必博客]]></title>
+  <subtitle><![CDATA[Where cangzhang makes it.]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://cangzhang.github.io/"/>
+  <updated>2014-08-22T11:56:20.532Z</updated>
+  <id>http://cangzhang.github.io/</id>
+  
+  <author>
+    <name><![CDATA[cangzhang]]></name>
+    <email><![CDATA[cangzan@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[获取指定DZ!X主题内容并过滤ubb标签[PHP]]]></title>
+    <link href="http://cangzhang.github.io/2014/08/22/request-certain-post-in-discuz/"/>
+    <id>http://cangzhang.github.io/2014/08/22/request-certain-post-in-discuz/</id>
+    <published>2014-08-22T11:50:25.000Z</published>
+    <updated>2014-08-22T11:55:09.000Z</updated>
+    <content type="html"><![CDATA[<p>代码如下：</p>
+<pre><code>    <span class="php"><span class="preprocessor">&lt;?php</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">capword</span><span class="params">()</span></span>{
+    <span class="comment">//连接数据库</span>
+    <span class="variable">$mysql_server_name</span>=<span class="string">'localhost'</span>; 
+    <span class="variable">$mysql_username</span>=<span class="string">'root'</span>; 
+    <span class="variable">$mysql_password</span>=<span class="string">'root'</span>;
+    <span class="variable">$mysql_database</span>=<span class="string">'dz'</span>;
+
+    <span class="variable">$conn</span>=mysql_connect(<span class="variable">$mysql_server_name</span>,<span class="variable">$mysql_username</span>,<span class="variable">$mysql_password</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"error connecting"</span>) ; 
+    mysql_query(<span class="string">"set names 'utf8'"</span>); 
+    mysql_select_db(<span class="variable">$mysql_database</span>); 
+    <span class="variable">$sql</span> =<span class="string">"SELECT message FROM pre_forum_post WHERE tid=1 and pid=1 and fid=2 and first=1 and invisible=0 "</span>;<span class="comment">//pid tid fid确定着具体主题，first代表一楼（即主贴内容）</span>
+    <span class="variable">$result</span> = mysql_query(<span class="variable">$sql</span>,<span class="variable">$conn</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">'无法连接!'</span>.mysql_error);
+    <span class="variable">$str</span>;
+
+    <span class="comment">//将读取内容赋值$str,并进行过滤</span>
+    <span class="keyword">while</span>( <span class="variable">$row</span> = mysql_fetch_array(<span class="variable">$result</span>) ){
+        <span class="keyword">foreach</span>(<span class="variable">$row</span> <span class="keyword">as</span> <span class="variable">$value</span>){}
+        <span class="variable">$str</span>=<span class="variable">$value</span>.<span class="string">''</span>;
+        <span class="comment">//echo $str;</span>
+        <span class="comment">//echo "&lt;br/&gt;";</span>
+        <span class="variable">$str</span>=preg_replace(<span class="string">'/\[.*?\]/is'</span>, <span class="string">''</span>, <span class="variable">$str</span>);
+        <span class="keyword">echo</span> substr(<span class="variable">$str</span>,<span class="number">0</span>,<span class="number">199</span>);<span class="comment">//指定输出长度</span>
+    }   
+    mysql_close(<span class="variable">$conn</span>);
+}
+<span class="preprocessor">?&gt;</span></span>
+</code></pre>]]></content>
+    
+    
+      <category term="PHP" scheme="http://cangzhang.github.io/tags/PHP/"/>
+    
+      <category term="代码" scheme="http://cangzhang.github.io/categories/%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[]]></title>
+    <link href="http://cangzhang.github.io/2014/08/22/e8a7a3e586b3-win-8-bootmgr-is-missinge681a2e5a48d-win-8-e590afe58aa8efbc8ce4b99fe98082e794a8e4ba8ewin-7/"/>
+    <id>http://cangzhang.github.io/2014/08/22/e8a7a3e586b3-win-8-bootmgr-is-missinge681a2e5a48d-win-8-e590afe58aa8efbc8ce4b99fe98082e794a8e4ba8ewin-7/</id>
+    <published>2014-08-22T11:47:13.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>title: “解决 Win 8 “bootmgr is missing”(恢复 Win 8 启动，也适用于win 7)”<br>date: 2013-07-20 09:33:38</p>
+<h2 id="tags:">tags:</h2>
+<p>其实很简单：<br>1. 制作PE启动U盘，进入PE（64位）<br>2. win + R ，打开CMD窗口<br>3. 输入：</p>
+<p><code>C:
+cd windows #可能直接就是 C:/Windows 目录了，注意看提示
+bootrec /fixboot
+bootrec /fixmbr
+reboot</code></p>
+<p><code>原文链接（英文）：[http://windows7themes.net/how-to-fix-bootmgr-is-missing-in-windows-8.html](http://windows7themes.net/how-to-fix-bootmgr-is-missing-in-windows-8.html)</code></p>
+]]></content>
+    
+    
+      <category term="修复Win 8启动" scheme="http://cangzhang.github.io/tags/%E4%BF%AE%E5%A4%8DWin-8%E5%90%AF%E5%8A%A8/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Ubuntu里创建程序的快捷方式]]></title>
+    <link href="http://cangzhang.github.io/2013/07/28/e59ca8ubuntue9878ce5889be5bbbae7a88be5ba8fe79a84e5bfabe68db7e696b9e5bc8f/"/>
+    <id>http://cangzhang.github.io/2013/07/28/e59ca8ubuntue9878ce5889be5bbbae7a88be5ba8fe79a84e5bfabe68db7e696b9e5bc8f/</id>
+    <published>2013-07-28T06:30:07.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>下面我以Pycharm（Python的一个相当不错的IDE）来作为演示：<br>首先：</p>
+<p><pre lang="shell">sudo gedit /usr/share/applications/pycharm.desktop</pre><br>下面的是我的desktop文件的内容：</p>
+<p><code>[Desktop Entry]
+Comment=Python IDE //程序说明
+Name=Pycharm //程序名称
+Exec=/opt/pycharm/bin/pycharm.sh //指定执行文件位置
+Encoding=UTF-8
+Terminal=false
+Type=Application
+Categories=Application;
+Icon=/usr/share/applications/pycharm.png //这里定义图标路径</code></p>
+<p>如果你想像我一样省事，直接  <code>sudo cp pycharm.desktop /home/__username__/Desktop/pycharm.desktop</code></p>
+]]></content>
+    
+    
+      <category term="Ubuntu建立程序快捷方式" scheme="http://cangzhang.github.io/tags/Ubuntu%E5%BB%BA%E7%AB%8B%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[E: Sub-process /usr/bin/dpkg returned an error code (1)的解决方法]]></title>
+    <link href="http://cangzhang.github.io/2013/07/28/e-sub-process-usrbindpkg-returned-an-error-code-1e79a84e8a7a3e586b3e696b9e6b395/"/>
+    <id>http://cangzhang.github.io/2013/07/28/e-sub-process-usrbindpkg-returned-an-error-code-1e79a84e8a7a3e586b3e696b9e6b395/</id>
+    <published>2013-07-28T05:00:53.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>具体见<a href="http://askubuntu.com/questions/195950/package-system-broken-e-sub-process-usr-bin-dpkg-returned-an-error-code-1" target="_blank" rel="external">此处</a>，此问题见于Ubuntu</p>
+<pre lang="shell">sudo dpkg --configure -a
+sudo apt-get install -f
+sudo gedit /var/lib/dpkg/status</pre>
+找到当前正在安装的软件包名称，将其移除后保存，然后执行：
+<pre lang="shell">sudo apt-get clean
+sudo apt-get autoremove
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get -f install</pre>]]></content>
+    
+    
+      <category term="Ubuntu Sub-process 错误" scheme="http://cangzhang.github.io/tags/Ubuntu-Sub-process-%E9%94%99%E8%AF%AF/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Sublime Text 3 安装 Package Control]]></title>
+    <link href="http://cangzhang.github.io/2013/07/17/sublime-text-3-e5ae89e8a385-package-control/"/>
+    <id>http://cangzhang.github.io/2013/07/17/sublime-text-3-e5ae89e8a385-package-control/</id>
+    <published>2013-07-17T12:53:54.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p><span style="color: #99cc00;"><code>#1</code>.</span>  zip形式下载<a href="https://github.com/wbond/sublime_package_control" title="https://github.com/wbond/sublime_package_control" target="_blank" rel="external">https://github.com/wbond/sublime_package_control</a>，解压后将文件夹名更改为 <code>Package Control</code>.</p>
+<p><span style="color: #99cc00;"><code>#2</code>.</span>  zip形式下载<a href="https://github.com/wbond/sublime_package_control/tree/python3" title="https://github.com/wbond/sublime_package_control/tree/python3" target="_blank" rel="external">https://github.com/wbond/sublime_package_control/tree/python3</a>，解压后覆盖到 <code>Package Control</code>中，完成此插件API函数的更新。</p>
+<p><span style="color: #99cc00;"><code>#3</code>.</span>  将<code>Package Control</code>文件夹放入<code>C:\Users\Username\AppData\Roaming\Sublime Text 3\Packages</code>中，重启sublime text 3.</p>
+<p><span style="color: #99cc00;">或者，你可以略过前两步：</span></p>
+<p>下载我整理好的文件夹：<a href="http://pan.baidu.com/share/link?shareid=1951252756&amp;uk=654456852" target="_blank" rel="external">Package Control</a> (07/17),直接解压放到<code>C:\Users\Username\AppData\Roaming\Sublime Text 3\Packages</code>即可。</p>
+<blockquote>
+<p><code>部分内容来自：http://dengo.org/archives/594</code></p>
+</blockquote>
+]]></content>
+    
+    
+      <category term="Sublime Text 3" scheme="http://cangzhang.github.io/tags/Sublime-Text-3/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Github Pages建立博客的尝试]]></title>
+    <link href="http://cangzhang.github.io/2013/07/16/e59ca8github-pagese5bbbae7ab8be58d9ae5aea2e79a84e5b09de8af95/"/>
+    <id>http://cangzhang.github.io/2013/07/16/e59ca8github-pagese5bbbae7ab8be58d9ae5aea2e79a84e5b09de8af95/</id>
+    <published>2013-07-16T15:02:29.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>前面的基本部分就不说了。使用Ruby的话建议安装<a href="http://railsinstaller.org" target="_blank" rel="external">RailsInstaller</a>，能够省掉很多麻烦。<br>将淘宝Ruby源加入到列表里：</p>
+<p><pre>gem sources —remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a><br>gem sources -a <a href="http://ruby.taobao.org/" target="_blank" rel="external">http://ruby.taobao.org/</a></pre><br>查看源列表：</p>
+<p><code>gem sources -l</code></p>
+<p>这样一来，速度就会快很多。</p>
+<p>使用JekyII搭建博客推荐教程：<a href="http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/" target="_blank" rel="external">Github Pages极简教程</a></p>
+<p>使用Octopress搭建博客推荐教程：windows下的<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/" target="_blank" rel="external">教程1</a>、<a href="http://tonytonyjan.heroku.com/2012/03/01/install-octopress-on-windows/" target="_blank" rel="external">教程2</a>，<a href="http://www.yangzhiping.com/tech/octopress.html" target="_blank" rel="external">ubuntu下的教程</a></p>
+<p>按照 <a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/" target="_blank" rel="external">教程1</a> 基本已经解决问题了。但是遇到了这个错误：</p>
+<p><code>gh-pages -&amp;gt; gh-pages (non-fast forward)</code></p>
+<p><span style="color: #99cc00;">解决方法：</span></p>
+<p><code>git push origin :gh-pages
+git push origin gh-pages</code></p>
+]]></content>
+    
+    
+      <category term="Github Pages建立博客" scheme="http://cangzhang.github.io/tags/Github-Pages%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[唉，我这自律能力……]]></title>
+    <link href="http://cangzhang.github.io/2013/06/22/e59489efbc8ce68891e8bf99e887aae5be8be883bde58a9b/"/>
+    <id>http://cangzhang.github.io/2013/06/22/e59489efbc8ce68891e8bf99e887aae5be8be883bde58a9b/</id>
+    <published>2013-06-22T03:37:34.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>大早晨起来，本来想着去自习，打女朋友电话打不通，怀疑是她的手机又停机了，于是打开电脑给她充话费……</p>
+<p>突然发现自己手机也没什么话费了吗，也充了点……</p>
+<p>顺手打开邮箱，发现垃圾邮件里面有2封邮件说我的博客空间cpanel更换ip了，这是一打开发现无法访问了……</p>
+<p>擦，重新解析ip……</p>
+<p>又发现域名该续费了，顺手续费一下，找了一会的Godaddy优惠码（ <code>GDBBREN8</code> ），续费又花了$8，我的50大洋啊<del>~</del>~~~</p>
+<p>然后，我的自习就没了……</p>
+]]></content>
+    
+    
+      <category term="Godaddy优惠码" scheme="http://cangzhang.github.io/tags/Godaddy%E4%BC%98%E6%83%A0%E7%A0%81/"/>
+    
+      <category term="生活" scheme="http://cangzhang.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Sublime Text 2/3 Windows 破解补丁&注册机]]></title>
+    <link href="http://cangzhang.github.io/2013/06/10/sublime-text-23-windows-e7a0b4e8a7a3e8a1a5e4b881e6b3a8e5868ce69cba/"/>
+    <id>http://cangzhang.github.io/2013/06/10/sublime-text-23-windows-e7a0b4e8a7a3e8a1a5e4b881e6b3a8e5868ce69cba/</id>
+    <published>2013-06-09T16:01:09.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://ww2.sinaimg.cn/mw690/62374105jw1e5ibozuvscj20i80ezmy4.jpg" alt=""></p>
+<p>好吧，我是坏人……</p>
+<p>最近的 <code>Sublime Text 2</code> 老是出问题，只好下载一个SB 3（<a href="http://www.sublimetext.com/3" title="Sublime Text 3下载地址" target="_blank" rel="external">官网</a>）<a id="more"></a>试试，没想到这个大版本竟然不再提供免费使用了…………</p>
+<p>木办法了，google一下crack一下吧……</p>
+<p>注册机下载地址：</p>
+<p><code>链接:http://pan.baidu.com/share/link?shareid=1175711675&amp;amp;uk=654456852
+密码:ky2u</code></p>
+<p>怎么用很简单了，就不说了……</p>
+]]></content>
+    <summary type="html"><![CDATA[<p><img src="http://ww2.sinaimg.cn/mw690/62374105jw1e5ibozuvscj20i80ezmy4.jpg" alt=""></p>
+<p>好吧，我是坏人……</p>
+<p>最近的 <code>Sublime Text 2</code> 老是出问题，只好下载一个SB 3（<a href="http://www.sublimetext.com/3" title="Sublime Text 3下载地址" target="_blank" rel="external">官网</a>）]]></summary>
+    
+      <category term="sublime text 破解" scheme="http://cangzhang.github.io/tags/sublime-text-%E7%A0%B4%E8%A7%A3/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+      <category term="网络转载" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/%E7%BD%91%E7%BB%9C%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[关于AutoCAD 2012「安装失败」的那些事]]></title>
+    <link href="http://cangzhang.github.io/2013/05/09/e585b3e4ba8eautocad-2012e3808ce5ae89e8a385e5a4b1e8b4a5e3808de79a84e982a3e4ba9be4ba8b/"/>
+    <id>http://cangzhang.github.io/2013/05/09/e585b3e4ba8eautocad-2012e3808ce5ae89e8a385e5a4b1e8b4a5e3808de79a84e982a3e4ba9be4ba8b/</id>
+    <published>2013-05-09T00:51:03.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>最近经常帮同学解决各种电脑问题。唉，我怎么这么乐于助人呢。<br>找我的同学基本都是对电脑接触很多，但是了解很少的人。他们的电脑基本上都装了垃圾软件——数字。<br>于是，我去的时候，一般第一件事都是退出右下角的两个软件——某管家和某卫士。<a id="more"></a></p>
+<p>=====================邪恶的分割线=================</p>
+<p>回归正题，安装AutoCAD 2012失败的提示一般都是下面的情况：</p>
+<p>[caption id=”” align=”aligncenter” width=”500”]<img src="http://ww3.sinaimg.cn/mw690/62374105jw1e4hr1rx6xgj20dw0argmb.jpg" alt=""> 安装失败[/caption]</p>
+<p>以我的经验，大部分情况都是<code>.NET Framwork 4</code>没有安装成功。遇到错误以后，打开安装log文件，也可以看到相关的提示。这个时候，你需要进入到安装文件的<code>3rdParty\NET\4\wcu\dotNetFramework</code>目录下,右键「以管理员身份运行」安装第一个exe文件就行了，其余的都不需要管。这个提示可以解决掉绝大部分的AutoCAD安装失败。</p>
+<p>然后就是激活问题了。安装完成之后，先打开运行一次，然后再关闭（先不要急着激活），然后重新打开，再打开注册机（一定要「以管理员身份运行」），算出code，输入之前点一下<code>Mempatch</code>，你的AutoCAD 2012就可以正常使用了！</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>最近经常帮同学解决各种电脑问题。唉，我怎么这么乐于助人呢。<br>找我的同学基本都是对电脑接触很多，但是了解很少的人。他们的电脑基本上都装了垃圾软件——数字。<br>于是，我去的时候，一般第一件事都是退出右下角的两个软件——某管家和某卫士。]]></summary>
+    
+      <category term="AutoCAD安装" scheme="http://cangzhang.github.io/tags/AutoCAD%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[Solution]loadlibrary failed with error 126:找不到指定模块]]></title>
+    <link href="http://cangzhang.github.io/2013/04/02/solutionloadlibrary-failed-with-error-126e689bee4b88de588b0e68c87e5ae9ae6a8a1e59d97/"/>
+    <id>http://cangzhang.github.io/2013/04/02/solutionloadlibrary-failed-with-error-126e689bee4b88de588b0e68c87e5ae9ae6a8a1e59d97/</id>
+    <published>2013-04-02T13:27:31.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>今天安装AutoCAD 2014的时候遇到了这个问题。Google了一下，发现原来这个问题只出现在Win 7/Vista + ATI显卡上面。下面公布解决方法：<a id="more"></a></p>
+<h2 id="方法一（操作简单）">方法一（操作简单）</h2>
+<p>把显卡改为根据电源模式调节，具体步骤:鼠标右键-&gt;显示卡属性-&gt;电源-&gt;可切换显示卡属性-&gt;手动或根据电源选择图形处理器-&gt;应用。<br>这样，你就可以打开了。</p>
+<h2 id="方法二（稍微复杂些，而且未必有效）">方法二（稍微复杂些，而且未必有效）</h2>
+<p>这个稍微复杂些，还未必有效，但是说不定可以解决其他软件比如PS的类似问题。</p>
+<p>`=============分割线=============<br>Hi,<br><span style="line-height: 1.714285714; font-size: 1rem;">in order to use openGL, copy :</span><br>%WINDIR%\system32\opengl32.dll</p>
+<ul>
+<li>to :<br>%WINDIR%\system32.dll<br>yes… “.dll” without name. Will work with the following command:<br>start -&gt; execute (or shortcut WindowsKey + R) : cmd [ok]<br>cd %WINDIR%\system32<br>copy opengl32.dll .dll<br>If UAC’s still active you may have to run command prompt as administrator.<br>source : <a href="http://www.tomshardware.com/forum/284973-33-catalyst-breaks-opengl-games" target="_blank" rel="external">http://www.tomshardware.com/forum/284973-33-catalyst-breaks-opengl-games</a><br>I tried it successfully for Quake III &amp; Adobe Photoshop CS5.<br>This is relevant <em>only</em> if you’re using an ATI videocard <em>and</em> you’re under Vista or 7.<br>=======================================`</li>
+</ul>
+]]></content>
+    <summary type="html"><![CDATA[<p>今天安装AutoCAD 2014的时候遇到了这个问题。Google了一下，发现原来这个问题只出现在Win 7/Vista + ATI显卡上面。下面公布解决方法：]]></summary>
+    
+      <category term="AutoCAD错误" scheme="http://cangzhang.github.io/tags/AutoCAD%E9%94%99%E8%AF%AF/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[待续]Python 学习笔记]]></title>
+    <link href="http://cangzhang.github.io/2013/03/31/python-e5ada6e4b9a0e7ac94e8aeb0e5be85e7bbad/"/>
+    <id>http://cangzhang.github.io/2013/03/31/python-e5ada6e4b9a0e7ac94e8aeb0e5be85e7bbad/</id>
+    <published>2013-03-31T10:16:07.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p><pre lang="python">import <strong>from</strong> future </pre></p>
+<h1 id="(from_左右各有两个下划线，一个空格)">(from 左右各有两个下划线，一个空格)</h1>
+<p>缩进建议为 3 空格</p>
+]]></content>
+    
+    
+      <category term="python" scheme="http://cangzhang.github.io/tags/python/"/>
+    
+      <category term="python学习" scheme="http://cangzhang.github.io/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[C]错误C2275的解决方法]]></title>
+    <link href="http://cangzhang.github.io/2013/02/17/ce99499e8afafc2275e79a84e8a7a3e586b3e696b9e6b395/"/>
+    <id>http://cangzhang.github.io/2013/02/17/ce99499e8afafc2275e79a84e8a7a3e586b3e696b9e6b395/</id>
+    <published>2013-02-17T09:07:00.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>今天继续看C，看到对文件的读取写入这部分，然后就动手试试，是这段代码：<a id="more"></a></p>
+<p><pre lang="C">#include </pre></p>
+<h1 id="include">include</h1>
+<p>void main(){<br>    FILE <em>fqI=NULL;<br>    fqI=fopen(“2.c”,”rt”);<br>    if (fqI == NULL){<br>        printf(“ERROR 1!”);<br>    }<br>    FILE </em>fqO=NULL;<br>    fqO=fopen(“3.txt”,”wt”);<br>    if (fqO == NULL){<br>        printf (“ERROR 2!”);<br>    }<br>    char temp=’\0’;<br>    while ( ! feof(fqI) ){<br>        temp = fgetc(fqI);<br>        if (temp != EOF){<br>            fputc(temp,fqO);<br>        }<br>    }<br>    fclose (fqO);<br>    fclose (fqI);<br>    getch();<br>}<br>然后就莫名其妙地遇到了错误：<br><code>error C2275: &#39;FILE&#39; : illegal use of this type as an expression.</code></p>
+<p>这把我无奈的。。。于是google之，得到答案：</p>
+<blockquote>
+<p>你定义的位置不对，纯C程序不能放在程序段中，要放在程序段头定义。<br>(<a href="http://bbs.csdn.net/topics/300197095#post-302325425" target="_blank" rel="external">这里</a>)<br>真汗……这VC++ 6.0也真够垃圾的……<br>调整如下：</p>
+<p><pre lang="C">#include </pre></p>
+<h1 id="include-1">include</h1>
+<p>void main(){<br>    FILE <em>fqI=NULL;<br>    FILE </em>fqO=NULL;<br>    char temp=’\0’;<br>    fqI=fopen(“2.c”,”rt”);<br>    if (fqI == NULL){<br>        printf(“ERROR 1!”);<br>    }<br>    fqO=fopen(“3.txt”,”wt”);<br>    if (fqO == NULL){<br>        printf (“ERROR 2!”);<br>    }<br>    while ( ! feof(fqI) ){<br>        temp = fgetc(fqI);<br>        if (temp != EOF){<br>            fputc(temp,fqO);<br>        }<br>    }<br>    fclose (fqO);<br>    fclose (fqI);<br>    getch();<br>}<br>编译通过~~</p>
+</blockquote>
+]]></content>
+    <summary type="html"><![CDATA[<p>今天继续看C，看到对文件的读取写入这部分，然后就动手试试，是这段代码：]]></summary>
+    
+      <category term="C" scheme="http://cangzhang.github.io/tags/C/"/>
+    
+      <category term="error C2275" scheme="http://cangzhang.github.io/tags/error-C2275/"/>
+    
+      <category term="学习" scheme="http://cangzhang.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[Ubuntu]安装RTL8188CUS无线网卡驱动]]></title>
+    <link href="http://cangzhang.github.io/2013/02/03/ubuntue5ae89e8a385rtl8188cuse697a0e7babfe7bd91e58da1e9a9b1e58aa8/"/>
+    <id>http://cangzhang.github.io/2013/02/03/ubuntue5ae89e8a385rtl8188cuse697a0e7babfe7bd91e58da1e9a9b1e58aa8/</id>
+    <published>2013-02-03T14:32:45.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p><span style="color: #000000;"><a><span style="color: #000000;">手上的这台Dell N4050的无线网卡是Broadcom4313的，在ubuntu下显示速率为32 Mb/s (?),对于我来说是远远不够的。所幸手上还有一个FAST FW150UM 无线usb网卡，速率是150 Mb/s (可是这货在Ubuntu下显示速率竟然是54 Mb/s,有点崩溃了，难道在Ubuntu下无线网卡速率都折半了？？)，于是就想试试这张网卡。</span></a></span></p>
+<p><span style="color: #000000;"><a><span style="color: #000000;">根据之前的经验来说，Ubuntu 内核中集成的这张网卡的驱动很不完善，几乎是不能用的。于是就找到Realtek的官网，找到了它的Linux 驱动的下载地址（点击</span></a><a href="http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=1&amp;PFid=48&amp;Level=5&amp;Conn=4&amp;ProdID=274&amp;DownTypeID=3&amp;GetDown=false&amp;Downloads=true#2742" target="_blank" rel="external"><span style="color: #000000;">此处</span></a>）（</span>忘了说了，它的芯片型号是RTL8188CUS）。<br><a id="more"></a><br><img src="http://ww4.sinaimg.cn/mw690/62374105jw1e1gl5td5gnj.jpg" alt=""></p>
+<p><span style="color: #000000;"><a><span style="color: #000000;">下载完成之后，解压，打开Terminal，cd 到解压目录，首先执行：</span></a></span></p>
+<p><pre lang="shell">chmod 755 install.sh #更改install.sh权限，使其可执行</pre><br><span style="color: #000000;"><a><span style="color: #000000;">如果你和我一样，刚刚安装Ubuntu后不久，那么就执行：</span></a></span></p>
+<p><pre lang="shell">sudo apt-get install build-essential #安装编译依赖</pre><br><span style="color: #000000;"><a><span style="color: #000000;">安装好之后就可以编译驱动了，执行：</span></a></span></p>
+<p><pre lang="shell">sudo ./install.sh</pre><br><span style="color: #000000;"><a><span style="color: #000000;">这样就驱动就安装完成了，然而笔记本也有一个无线网卡，你需要把它black掉：</span></a></span></p>
+<p><pre lang="shell">sudo gedit /etc/modprobe.d/blacklist</pre><br><span style="color: #000000;"><a><span style="color: #000000;">添加以下内容：</span></a></span></p>
+<p><code>blacklist bcm43xx
+blacklist b43
+blacklist b43legacy
+blacklist ssb</code></p>
+<p><span style="color: #000000;"><a><span style="color: #000000;">之后重启，也可以直接输入命令：</span></a></span></p>
+<p><pre lang="shell">sudo reboot</pre><br>效果图：<br><img src="http://ww2.sinaimg.cn/mw690/62374105jw1e1gmcky2iej.jpg" alt=""></p>
+<p>PS.除此之外，如果你想要使用这块奇葩网卡，<strong>一定要等到Ubuntu开机后，插上网卡进行使用！！！</strong><br>总的来说，速度还是不错的～</p>
+]]></content>
+    <summary type="html"><![CDATA[<p><span style="color: #000000;"><a><span style="color: #000000;">手上的这台Dell N4050的无线网卡是Broadcom4313的，在ubuntu下显示速率为32 Mb/s (?),对于我来说是远远不够的。所幸手上还有一个FAST FW150UM 无线usb网卡，速率是150 Mb/s (可是这货在Ubuntu下显示速率竟然是54 Mb/s,有点崩溃了，难道在Ubuntu下无线网卡速率都折半了？？)，于是就想试试这张网卡。</span></a></span></p>
+<p><span style="color: #000000;"><a><span style="color: #000000;">根据之前的经验来说，Ubuntu 内核中集成的这张网卡的驱动很不完善，几乎是不能用的。于是就找到Realtek的官网，找到了它的Linux 驱动的下载地址（点击</span></a><a href="http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=1&amp;PFid=48&amp;Level=5&amp;Conn=4&amp;ProdID=274&amp;DownTypeID=3&amp;GetDown=false&amp;Downloads=true#2742" target="_blank" rel="external"><span style="color: #000000;">此处</span></a>）（</span>忘了说了，它的芯片型号是RTL8188CUS）。<br>]]></summary>
+    
+      <category term="安装RTL8188CUS无线网卡驱动" scheme="http://cangzhang.github.io/tags/%E5%AE%89%E8%A3%85RTL8188CUS%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1%E9%A9%B1%E5%8A%A8/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[Solution]WIN下jar文件不能直接双击运行]]></title>
+    <link href="http://cangzhang.github.io/2013/02/02/solutionwine4b88bjare69687e4bbb6e4b88de883bde79bb4e68ea5e58f8ce587bbe8bf90e8a18c/"/>
+    <id>http://cangzhang.github.io/2013/02/02/solutionwine4b88bjare69687e4bbb6e4b88de883bde79bb4e68ea5e58f8ce587bbe8bf90e8a18c/</id>
+    <published>2013-02-02T07:16:28.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>对于Jar文件，如果你在安装java之前已经装过RAR等压缩文件管理程序的话，双击打开时会直接以压缩文件的形式打开，这点对于WebOS手机而言是非常痛苦的。比如你想使用WQI安装程序时，比如你想刷机时，你都会面对：<br><img src="http://ww3.sinaimg.cn/mw690/62374105jw1e1f2tal1fqj.jpg" alt=""><br>google一番，找到了解决方法：</p>
+<ul>
+<li><span style="font-size: 1rem; line-height: 1.714285714;">如果使用jarfix.exe,双击运行以后，再打开jar文件就不会再出现上述问题了，直接打开；</span></li>
+<li><span style="font-size: 1rem; line-height: 1.714285714;">对于run.bat，使用方法则是：将jar文件拖动它上面，就可以直接打开了</span><br>下载地址：<a href="http://vdisk.weibo.com/s/pmyBk" title="jar-fix.zip（微盘）" target="_blank" rel="external">jar-fix.zip（微盘）</a><br>That’s all.</li>
+</ul>
+]]></content>
+    
+    
+      <category term="jar文件不能直接双击运行" scheme="http://cangzhang.github.io/tags/jar%E6%96%87%E4%BB%B6%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%8F%8C%E5%87%BB%E8%BF%90%E8%A1%8C/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[Solution] 笔记本（Ubuntu 12.04）不能进入休眠状态]]></title>
+    <link href="http://cangzhang.github.io/2013/01/26/solution-e7ac94e8aeb0e69cacefbc88ubuntu-12-04efbc89e4b88de883bde8bf9be585a5e4bc91e79ca0e78ab6e68081/"/>
+    <id>http://cangzhang.github.io/2013/01/26/solution-e7ac94e8aeb0e69cacefbc88ubuntu-12-04efbc89e4b88de883bde8bf9be585a5e4bc91e79ca0e78ab6e68081/</id>
+    <published>2013-01-26T11:52:41.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>我试了两种方法，但是都是在同一次重启之前试的，所以不知道是哪种方法起了作用……<a id="more"></a><br>一、</p>
+<p><pre lang="">sudo gedit /etc/pm/sleep.d/20_custom-ehci_hcd<br>//新建20_custom-ehci_hcd文件<br>输入以下内容：</pre></p>
+<p><pre lang="shell">#!/bin/sh</pre></p>
+<h1 id="inspired_by_http://art-ubuntuforums-org/showpost-0&amp;postcount=19">inspired by <a href="http://art.ubuntuforums.org/showpost...0&amp;postcount=19" target="_blank" rel="external">http://art.ubuntuforums.org/showpost...0&amp;postcount=19</a></h1>
+<h1 id="…and_http://thecodecentral-com/2011/01/18-ot-working-bug">…and <a href="http://thecodecentral.com/2011/01/18...ot-working-bug" target="_blank" rel="external">http://thecodecentral.com/2011/01/18...ot-working-bug</a></h1>
+<h1 id="tidied_by_tqzzaa">tidied by tqzzaa</h1>
+<p>VERSION=1.1<br>DEV_LIST=/tmp/usb-dev-list<br>DRIVERS_DIR=/sys/bus/pci/drivers<br>DRIVERS=”ehci xhci” # ehci_hcd, xhci_hcd<br>HEX=”[[:xdigit:]]”<br>MAX_BIND_ATTEMPTS=2<br>BIND_WAIT=0.1<br>unbindDev() {<br>echo -n &gt; $DEV_LIST 2&gt;/dev/null<br>for driver in $DRIVERS; do<br>DDIR=$DRIVERS_DIR/${driver}_hcd<br>for dev in <code>ls $DDIR 2&amp;gt;/dev/null | egrep &quot;^$HEX+:$HEX+:$HEX&quot;</code>; do<br>echo -n “$dev” &gt; $DDIR/unbind<br>echo “$driver $dev” &gt;&gt; $DEV_LIST<br>done</p>
+<h1 id="for_bus_in_$EHCI_BUSES;_do">for bus in $EHCI_BUSES; do</h1>
+<p>echo -n $bus &gt; /sys/bus/pci/drivers/ehci_hcd/unbind</p>
+<h1 id="done">done</h1>
+<p>done<br>}<br>bindDev() {<br>if [ -s $DEV_LIST ]; then<br>while read driver dev; do<br>DDIR=$DRIVERS_DIR/${driver}_hcd</p>
+<h1 id="for_bus_in_$EHCI_BUSES;_do-1">for bus in $EHCI_BUSES; do</h1>
+<p>echo -n $bus &gt; /sys/bus/pci/drivers/ehci_hcd/bind</p>
+<h1 id="done-1">done</h1>
+<p>while [ $((MAX_BIND_ATTEMPTS)) -gt 0 ]; do<br>echo -n “$dev” &gt; $DDIR/bind<br>if [ ! -L “$DDIR/$dev” ]; then<br>sleep $BIND_WAIT<br>else<br>break<br>fi<br>MAX_BIND_ATTEMPTS=$((MAX_BIND_ATTEMPTS-1))<br>done<br>done &lt; $DEV_LIST fi rm $DEV_LIST 2&gt;/dev/null<br>chvt 1<br>chvt 7<br>}<br>EHCI_BUSES=”0000:00:1a.0 0000:00:1d.0”<br>case “$1” in<br>hibernate|suspend)<br>unbindDev;;<br>resume|thaw)<br>bindDev;;<br>esac<br>sudo chmod 755 /etc/pm/sleep.d/20_custom-ehci_hcd<br>//更改权限<br>sudo reboot</p>
+<p>方法出自：<a href="http://forum.ubuntu.org.cn/viewtopic.php?f=42&amp;t=384333" target="_blank" rel="external">求助：ubuntu 挂起后无法唤醒。。</a></p>
+<p>二、</p>
+<p><pre lang="shell">sudo apt-get install pm-utils</pre><br><code>注：适用环境－－笔记本（台式机没有测试过）可以休眠到内存，但是休眠后无规律性、时好时坏的不能恢复；
+如果你的本本干脆就无法休眠到内存，适不适用此程序，未测试。</code></p>
+<p>出自：<a href="http://forum.ubuntu.org.cn/viewtopic.php?f=80&amp;t=81614&amp;start=15" target="_blank" rel="external">http://forum.ubuntu.org.cn/viewtopic.php?f=80&amp;t=81614&amp;start=15</a></p>
+]]></content>
+    <summary type="html"><![CDATA[<p>我试了两种方法，但是都是在同一次重启之前试的，所以不知道是哪种方法起了作用……]]></summary>
+    
+      <category term="Ubuntu" scheme="http://cangzhang.github.io/tags/Ubuntu/"/>
+    
+      <category term="笔记本不能休眠" scheme="http://cangzhang.github.io/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC%E4%B8%8D%E8%83%BD%E4%BC%91%E7%9C%A0/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+      <category term="网络转载" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/%E7%BD%91%E7%BB%9C%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Linux下破解Sublime Text 2]]></title>
+    <link href="http://cangzhang.github.io/2013/01/26/184/"/>
+    <id>http://cangzhang.github.io/2013/01/26/184/</id>
+    <published>2013-01-26T11:13:41.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>好吧，我承认这么做是不对的。可是sublime text 2确实用着太舒服了，它在win下的功能notepad++也可以替代一部分，可是后者没有相应的linux版本。只好去crack…… 再次声明，这么做是不对的！如果你拥有一定的购买能力。应当去购买这款软件，<a href="http://www.sublimetext.com/" target="_blank" rel="external">软件主页：http://www.sublimetext.com/</a></p>
+<p><a id="more"></a>具体命令如下：</p>
+<p><pre lang="shell">cd  /usr/lib/sublime-text-2//如果你是通过apt命令默认安装的话，那么它应该在这个位置</pre></p>
+<p>sudo cp sublime_text sublime_text1<br>//创建备份<br>sudo vi sublime_text<br>//使用vi打开</p>
+<p><pre lang="shell">:%!xxd<br>//输入命令，转换为16进制<br>/Thanks<br>==&gt;首先查找Thanks<br>/4333 3342<br>//查找破解关键字段</pre></p>
+<p><pre lang="shell">==&gt;将光标移动至3342位置:<br>i<br>//修改3342为3242<br>==&gt;按Esc退出编辑<br>:%!xxd -r<br>//将进制转回去<br>:wq<br>//退出，保存</pre></p>
+<p><pre lang="shell">sublime-text-2<br>//打开修改过的sublime-text-2</pre><br>输入注册码：<br><em>—–BEGIN LICENSE—–<br>China<br>Unlimited User License<br>EA7E-2861<br>BE67D2175D3569FDAB9EB5340FAD2822<br>E7B56B3397A76AA9FBE8AC3D3C65918B<br>DFC28F2EA158140D9E07853D594818EB<br>3A237B2E8E98ED257C269548F50EDA34<br>EF0C7F72D8917DB538A0245E46BFD6B1<br>85F4EDE331F253530ED67A5C19E92399<br>04C5F4A1AF4AF3DB5EC49C1FEE17CA76<br>7E369F8AAE4AC6C6E756B5882E1608B9<br>—–END LICENSE—–</em></p>
+<p>&nbsp;</p>
+<p>接着就会提示成功了。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>好吧，我承认这么做是不对的。可是sublime text 2确实用着太舒服了，它在win下的功能notepad++也可以替代一部分，可是后者没有相应的linux版本。只好去crack…… 再次声明，这么做是不对的！如果你拥有一定的购买能力。应当去购买这款软件，<a href="http://www.sublimetext.com/" target="_blank" rel="external">软件主页：http://www.sublimetext.com/</a></p>
+<p>]]></summary>
+    
+      <category term="sublime text 2" scheme="http://cangzhang.github.io/tags/sublime-text-2/"/>
+    
+      <category term="sublime text 2 破解" scheme="http://cangzhang.github.io/tags/sublime-text-2-%E7%A0%B4%E8%A7%A3/"/>
+    
+      <category term="网络转载" scheme="http://cangzhang.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[Solution]Adblock plus在Chrome中不起作用]]></title>
+    <link href="http://cangzhang.github.io/2013/01/26/adblock-pluse59ca8chromee4b8ade4b88de8b5b7e4bd9ce794a8/"/>
+    <id>http://cangzhang.github.io/2013/01/26/adblock-pluse59ca8chromee4b8ade4b88de8b5b7e4bd9ce794a8/</id>
+    <published>2013-01-25T16:41:23.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>好吧，突然发现ubuntu下的Chrome里面广告似乎一下子都显示出来了……<br>奇怪，明明装了Adblock plus了，还有广告弹出来，这在win下的Chrome/firefox里面都没有出现过。<br>我甚至自己动手去创建拦截规则了，没有作用。<a id="more"></a><br>仔细想想，我在Ubuntu里面默认语言是English，可能是Adblock plus根据浏览器语言创建的过略规则，这一规则可能只对English类型/地区的网站才会起作用。<br>于是，进入它的Options，添加了Chinalist+Easylist，F5刷新一下，广告去无踪～～<br><img src="http://ww4.sinaimg.cn/large/62374105jw1e16abt4abjj.jpg" alt=""></p>
+<p>PS. Goagent在ubuntu下很不好用 -_-!</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>好吧，突然发现ubuntu下的Chrome里面广告似乎一下子都显示出来了……<br>奇怪，明明装了Adblock plus了，还有广告弹出来，这在win下的Chrome/firefox里面都没有出现过。<br>我甚至自己动手去创建拦截规则了，没有作用。]]></summary>
+    
+      <category term="adblock plus" scheme="http://cangzhang.github.io/tags/adblock-plus/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在ubuntu中搭建PHP开发环境]]></title>
+    <link href="http://cangzhang.github.io/2013/01/25/e59ca8ubuntue4b8ade690ade5bbbaphpe5bc80e58f91e78eafe5a283/"/>
+    <id>http://cangzhang.github.io/2013/01/25/e59ca8ubuntue4b8ade690ade5bbbaphpe5bc80e58f91e78eafe5a283/</id>
+    <published>2013-01-25T11:59:03.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>其实我在以前写过一篇<a href="http://zzcang.org/archives/80" target="_blank" rel="external">类似的内容</a>.<br>但是那篇内容更偏于安装需要的方面，这次再次进行配置，仍然遇到很多问题。<br>其中最棘手的莫过于你的 localhost 目录的问题。默认位置（建立过软链接后）是在/var/www,然而这个目录大家都了解，如果想对其中内容进行更改会非常麻烦，因为需要root权限。因此这里再对这一过程进行叙述。<a id="more"></a><br>首先，在终端中输入：<br><code>sudo tasksel install lamp-server</code><br>当然，如果你没有安装 tasksel 是没有办法进行这一命令的。所以：<br><code>sudo apt-get install tasksel</code><br>然后，找到默认配置文件 /etc/apache2/sites-available/default ，你需要设定自己的配置文件，于是<br><code>sudo cp /etc/apache2/sites-available/default /etc/apache2/sites-available/mysite</code><br>这里将新的配置文件定义为 mysite ，进行编辑：<br><code>gksudo gedit /etc/apache2/sites-available/mysite</code><br>更改文档根目录以指向新位置==&gt;&gt; /var/www —&gt; /home/username/public_html<br>取消默认配置文件激活并激活新配置：<br><code>sudo a2dissite default &amp;amp;&amp;amp; sudo a2ensite mysite</code><br>重启Appache<br><code>sudo /etc/init.d/apache2 reload</code></p>
+<p>之后对MySQL进行配置，安装、配置phpMyAdmin，此步骤略去。<br>查看phpMyAdmin安装在什么位置：<br><code>dpkg -L phpmyadmin</code></p>
+<p>显示是在/usr/share/phpmyadmin</p>
+<p>创建链接（连接到/home/cangzhang/public_html）:<br><code>sudo ln -s /opt/phpmyadmin /home/username/public_html</code></p>
+<p>OK,that’s all.</p>
+<p>参考文章：<br><a href="http://netbeans.org/kb/docs/php/configure-php-environment-ubuntu_zh_CN.html" target="_blank" rel="external">在 Linux Ubuntu 中配置 PHP 开发环境</a></p>
+]]></content>
+    <summary type="html"><![CDATA[<p>其实我在以前写过一篇<a href="http://zzcang.org/archives/80" target="_blank" rel="external">类似的内容</a>.<br>但是那篇内容更偏于安装需要的方面，这次再次进行配置，仍然遇到很多问题。<br>其中最棘手的莫过于你的 localhost 目录的问题。默认位置（建立过软链接后）是在/var/www,然而这个目录大家都了解，如果想对其中内容进行更改会非常麻烦，因为需要root权限。因此这里再对这一过程进行叙述。]]></summary>
+    
+      <category term="配置php环境" scheme="http://cangzhang.github.io/tags/%E9%85%8D%E7%BD%AEphp%E7%8E%AF%E5%A2%83/"/>
+    
+      <category term="前端研究" scheme="http://cangzhang.github.io/categories/%E5%89%8D%E7%AB%AF%E7%A0%94%E7%A9%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[Discuz!X]Mysql无法连接，提示2002之解决途径之一]]></title>
+    <link href="http://cangzhang.github.io/2013/01/03/discuzxmysqle697a0e6b395e8bf9ee68ea5efbc8ce68f90e7a4ba2002e4b98be8a7a3e586b3e98094e5be84e4b98be4b880/"/>
+    <id>http://cangzhang.github.io/2013/01/03/discuzxmysqle697a0e6b395e8bf9ee68ea5efbc8ce68f90e7a4ba2002e4b98be8a7a3e586b3e98094e5be84e4b98be4b880/</id>
+    <published>2013-01-02T16:22:43.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>好吧，一切都要好好看err（error）文件。<br>例如此处：</p>
+<p><pre lang="shell">130102 23:17:27 [ERROR] You need to use —log-bin to make —binlog-format work.</pre><br><a id="more"></a>这里提示说一定要生成binlog，我晕，那种东西动辄上G，disk空间都给你占了，baga，不行！<br>于是到OSChina（开源中国）去提问一下，有位大神回答：</p>
+<blockquote>
+<p>如果你只是单个 MySQL 的话，可以将下面两个配置注释掉</p>
+<p><pre lang="shell">#binlog_format=mixed</pre></p>
+<h1 id="server-id_=_1">server-id = 1</h1>
+<p>如果你不想去掉这两个配置，需要打开 log-bin=mysql-bin 这个配置项<br>于是按照大神的建议配置/etc/my.cnf,重启MySQL：</p>
+<p><pre lang="shell">mysql -u root<br>service mysql start</pre><br>依然无法启动，提示 Starting MySQL. ERROR! Manager of pid-file quit without updating file.<br>好吧……再次查看err，原来是没有权限生成.pid文件，ok，既然是权限问题，这就好办了：</p>
+<p><pre lang="shell">chown -R mysql:mysql /usr/local/mysql</pre></p>
+<h1 id="一定要注意是否有mysql这个用户名，否则这一步是无效的">一定要注意是否有mysql这个用户名，否则这一步是无效的</h1>
+<p>再次执行</p>
+<p><pre lang="shell">mysql -u root<br>service mysql start</pre><br>，终于：<br><img src="http://ww1.sinaimg.cn/large/62374105jw1e0fnp8obvpj.jpg" alt=""></p>
+</blockquote>
+]]></content>
+    <summary type="html"><![CDATA[<p>好吧，一切都要好好看err（error）文件。<br>例如此处：</p>
+<p><pre lang="shell">130102 23:17:27 [ERROR] You need to use —log-bin to make —binlog-format work.</pre><br>]]></summary>
+    
+      <category term="MySQL" scheme="http://cangzhang.github.io/tags/MySQL/"/>
+    
+      <category term="折腾" scheme="http://cangzhang.github.io/categories/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Discuz!中将某用户设置为[创始人]]]></title>
+    <link href="http://cangzhang.github.io/2012/12/16/discuze4b8ade5b086e69f90e794a8e688b7e8aebee7bdaee4b8bae5889be5a78be4baba/"/>
+    <id>http://cangzhang.github.io/2012/12/16/discuze4b8ade5b086e69f90e794a8e688b7e8aebee7bdaee4b8bae5889be5a78be4baba/</id>
+    <published>2012-12-15T16:04:49.000Z</published>
+    <updated>2014-08-22T11:47:13.000Z</updated>
+    <content type="html"><![CDATA[<p>找到论坛文件 config/config_global.php,<br>其中</p>
+<blockquote>
+<p>$_config[‘admincp’][‘founder’] = ‘1’;<br><a id="more"></a>将该用户UID添加进去，如<br>$_config[‘admincp’][‘founder’] = ‘1，2’;<br>进入到论坛后台，在用户管理中将该用户设置为“管理员”，再次点击管理团队，就可以看到该用户已经是创始人了。</p>
+</blockquote>
+]]></content>
+    <summary type="html"><![CDATA[<p>找到论坛文件 config/config_global.php,<br>其中</p>
+<blockquote>
+<p>$_config[‘admincp’][‘founder’] = ‘1’;<br>]]></summary>
+    
+      <category term="discuz创始人权限" scheme="http://cangzhang.github.io/tags/discuz%E5%88%9B%E5%A7%8B%E4%BA%BA%E6%9D%83%E9%99%90/"/>
+    
+      <category term="网络转载" scheme="http://cangzhang.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+</feed>
