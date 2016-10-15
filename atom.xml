@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>WiiBe</title>
+  <subtitle>Try to be a better man.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://wiibe.xyz/"/>
+  <updated>2016-10-15T15:17:42.568Z</updated>
+  <id>http://wiibe.xyz/</id>
+  
+  <author>
+    <name>cangzhang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Sublime Text] 配置JavaScript, PHP build system</title>
+    <link href="http://wiibe.xyz/2016/8/17/Sublime-Text-%E9%85%8D%E7%BD%AEJavaScript-PHP-build-system/"/>
+    <id>http://wiibe.xyz/2016/8/17/Sublime-Text-配置JavaScript-PHP-build-system/</id>
+    <published>2016-08-17T04:18:08.000Z</published>
+    <updated>2016-10-15T15:17:42.568Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先配置 node 和 PHP 环境；<br>选择 Tools -&gt; Build System -&gt; New Build System 之后，</p>
+<ul>
+<li><p>创建 JavaScript.sublime-build 文件：</p>
+<p>{</p>
+<pre><code>&quot;cmd&quot;: [&quot;node&quot;, &quot;$file&quot;],
+&quot;file_regex&quot;: &quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;,
+&quot;working_dir&quot;: &quot;${file_path}&quot;,
+&quot;selector&quot;: &quot;source.js&quot;,
+&quot;shell&quot;: true,
+&quot;encoding&quot;: &quot;utf-8&quot;,
+&quot;windows&quot;: {
+    &quot;cmd&quot;: [&quot;node&quot;, &quot;$file&quot;]
+},
+&quot;linux&quot;: {
+    &quot;cmd&quot;: [&quot;killall node; node&quot;, &quot;$file&quot;]
+}
+</code></pre><p>}<br>`</p>
+</li>
+<li><p>创建 PHP.sublime-build 文件：<br><pre>`{</pre></p>
+<pre><code>&quot;cmd&quot;: [&quot;php&quot;, &quot;$file&quot;],
+&quot;file_regex&quot;: &quot;php$&quot;,
+&quot;selector&quot;: &quot;source.php&quot;
+</code></pre><p>}</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先配置 node 和 PHP 环境；&lt;br&gt;选择 Tools -&amp;gt; Build System -&amp;gt; New Build System 之后，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建 JavaScript.sublime-build 文件：&lt;/p&gt;
+&lt;p&gt;{&lt;/p
+    
+    </summary>
+    
+    
+      <category term="sublime-text" scheme="http://wiibe.xyz/tags/sublime-text/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 16.04 配置 LAMP 环境（PHP7）</title>
+    <link href="http://wiibe.xyz/2016/8/4/Ubuntu-16-04-%E9%85%8D%E7%BD%AE-LAMP-%E7%8E%AF%E5%A2%83%EF%BC%88PHP7%EF%BC%89/"/>
+    <id>http://wiibe.xyz/2016/8/4/Ubuntu-16-04-配置-LAMP-环境（PHP7）/</id>
+    <published>2016-08-04T01:05:06.000Z</published>
+    <updated>2016-10-15T15:17:42.571Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>sudo apt-get update
+`&lt;/pre&gt;
+
+## Step 1\. Install Apache2
+
+&lt;pre&gt;`sudo apt-get install apache2
+sudo ufw app list
+//Sample output:
+Available applications:
+  Apache
+  Apache Full
+  Apache Secure
+  OpenSSH
+
+sudo ufw allow in &quot;Apache Full&quot; 
+//Allow incoming traffic for this profile
+`&lt;/pre&gt;
+
+## Step 2\. Install MySQL
+
+&lt;pre&gt;`sudo apt-get install mysql-server
+sudo mysql_secure_installation
+
+`&lt;/pre&gt;
+
+## Step 3\. Install PHP
+
+&lt;pre&gt;`sudo apt-get install php7
+
+`&lt;/pre&gt;
+
+## Step 4\. Install PHP Modules
+
+&lt;pre&gt;`apt-cache search php- | less
+apt-cache show package_name
+sudo apt-get install php7-*
+</code></pre><hr>
+<p>遇到的问题：</p>
+<ul>
+<li>重新设置 Mysql user/pwd.(解决方法见链接2)</li>
+</ul>
+<hr>
+<p>参考文章：<br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04" target="_blank" rel="external">How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 16.04</a><br><a href="http://www.cnblogs.com/leolztang/p/5094930.html" target="_blank" rel="external">MySQL ERROR 1698 (28000) 错误</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;sudo apt-get update
+`&amp;lt;/pre&amp;gt;
+
+## Step 1\. Install Apache2
+
+&amp;lt;pre&amp;gt;`sudo apt-get install apache2
+sudo ufw app list
+//Samp
+    
+    </summary>
+    
+    
+      <category term="ubuntu" scheme="http://wiibe.xyz/tags/ubuntu/"/>
+    
+      <category term="lamp" scheme="http://wiibe.xyz/tags/lamp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[JavaScript] 获取当前时间并转换为 UTC 时间字符串</title>
+    <link href="http://wiibe.xyz/2016/7/1/JavaScript-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E5%B9%B6%E8%BD%AC%E6%8D%A2%E4%B8%BA-UTC-%E6%97%B6%E9%97%B4%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://wiibe.xyz/2016/7/1/JavaScript-获取当前时间并转换为-UTC-时间字符串/</id>
+    <published>2016-07-01T09:31:46.000Z</published>
+    <updated>2016-10-15T15:17:42.566Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>var utc = new Date().toISOString().slice(0, -5);
+console.log(utc);
+//OUTPUT: 2016-07-01T09:26:52
+
+var utc = new Date().toISOString();
+console.log(utc);
+//OUTPUT: 2016-07-01T09:31:17.008Z
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;var utc = new Date().toISOString().slice(0, -5);
+console.log(utc);
+//OUTPUT: 2016-07-01T09:26:52
+
+var utc = new Date().toISOStrin
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://wiibe.xyz/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Behat] Selenium 设置 Chrome 为默认浏览器 &amp;amp; 更改窗口大小为Maximize</title>
+    <link href="http://wiibe.xyz/2016/6/7/Behat-Selenium-%E8%AE%BE%E7%BD%AE-Chrome-%E4%B8%BA%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8-amp-%E6%9B%B4%E6%94%B9%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F%E4%B8%BAMaximize/"/>
+    <id>http://wiibe.xyz/2016/6/7/Behat-Selenium-设置-Chrome-为默认浏览器-amp-更改窗口大小为Maximize/</id>
+    <published>2016-06-07T07:59:42.000Z</published>
+    <updated>2016-10-15T15:17:42.564Z</updated>
+    
+    <content type="html"><![CDATA[<p>默认浏览器设置为Chrome:</p>
+<ul>
+<li><p>打开<code>behat.yml</code>文件，找到<code>browser_name</code>，修改为<br><code>browser_name: chrome</code></p>
+</li>
+<li><p>下载chromedriver，并将它与selenium放在同一个文件夹下。</p>
+</li>
+<li><p>启动时首先运行selenium文件</p>
+</li>
+</ul>
+<p>修改默认窗口为Maximize：</p>
+<pre><code>$this-&amp;gt;getSession()-&amp;gt;getDriver()-&amp;gt;maximizeWindow(&apos;current&apos;);
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;默认浏览器设置为Chrome:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;打开&lt;code&gt;behat.yml&lt;/code&gt;文件，找到&lt;code&gt;browser_name&lt;/code&gt;，修改为&lt;br&gt;&lt;code&gt;browser_name: chrome&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+    
+    </summary>
+    
+    
+      <category term="selenium" scheme="http://wiibe.xyz/tags/selenium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AngularJS] 重置表单class ng-dirty</title>
+    <link href="http://wiibe.xyz/2016/6/2/AngularJS-%E9%87%8D%E7%BD%AE%E8%A1%A8%E5%8D%95class-ng-dirty/"/>
+    <id>http://wiibe.xyz/2016/6/2/AngularJS-重置表单class-ng-dirty/</id>
+    <published>2016-06-02T05:39:09.000Z</published>
+    <updated>2016-10-15T15:17:42.564Z</updated>
+    
+    <content type="html"><![CDATA[<p>在表单提交之后，如果仅仅是清空表单数据内容，相应 <code>input</code> 的 <code>class</code> 并不会改变（依然是 <code>ng-dirty</code> 状态），我们需要移除这些红色的 <code>required</code> 提示。</p>
+<pre><code>    &amp;lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl as ctrl&quot;&amp;gt;
+      &amp;lt;form name=&quot;ctrl.myForm&quot;&amp;gt;
+        &amp;lt;div&amp;gt;&amp;lt;label for=&quot;email&quot;&amp;gt;Email&amp;lt;/label&amp;gt;
+        &amp;lt;input name=&quot;myInput&quot; type=&quot;email&quot; ng-model=&quot;ctrl.email&quot; id=&quot;email&quot; required&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div&amp;gt;&amp;lt;label for=&quot;password&quot;&amp;gt;Password&amp;lt;/label&amp;gt;
+        &amp;lt;input name=&quot;myPassword&quot; type=&quot;password&quot; minlength=&quot;8&quot; ng-model=&quot;ctrl.password&quot; id=&quot;password&quot; required&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div&amp;gt;
+        &amp;lt;button ng-click=&quot;ctrl.reset()&quot; type=&quot;button&quot;&amp;gt;Reset&amp;lt;/button&amp;gt;
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/form&amp;gt;
+`&lt;/pre&gt;
+
+`JavaScript` 代码：
+
+&lt;pre&gt;`
+angular.module(&apos;myApp&apos;, [])
+    .controller(&apos;myCtrl&apos;, myCtrl);
+
+function myCtrl(){
+    var vm = this;
+    vm.reset = function(){
+        vm.myForm.$setPristine();
+        vm.myForm.$setUntouched();
+        vm.email = vm.password = &apos;&apos;;
+  }
+}
+</code></pre><p><em>表单input区域必须放在 <code>form</code> 中</em></p>
+<p>参考连接：<a href="http://stackoverflow.com/questions/18648427/angular-clear-subform-data-and-reset-validation%20%5BAngular%20clear%20subform%20data%20and%20reset%20validation%5D" target="_blank" rel="external">Angular clear subform data and reset validation</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在表单提交之后，如果仅仅是清空表单数据内容，相应 &lt;code&gt;input&lt;/code&gt; 的 &lt;code&gt;class&lt;/code&gt; 并不会改变（依然是 &lt;code&gt;ng-dirty&lt;/code&gt; 状态），我们需要移除这些红色的 &lt;code&gt;required&lt;/code&gt; 提示
+    
+    </summary>
+    
+    
+      <category term="angularjs" scheme="http://wiibe.xyz/tags/angularjs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Apache] 配置访问本地端口网址</title>
+    <link href="http://wiibe.xyz/2016/5/30/Apache-%E9%85%8D%E7%BD%AE%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0%E7%AB%AF%E5%8F%A3%E7%BD%91%E5%9D%80/"/>
+    <id>http://wiibe.xyz/2016/5/30/Apache-配置访问本地端口网址/</id>
+    <published>2016-05-30T10:46:02.000Z</published>
+    <updated>2016-10-15T15:17:42.564Z</updated>
+    
+    <content type="html"><![CDATA[<p>在<code>httpd-vhosts.conf</code>中，新建如下内容：</p>
+<pre><code>&amp;lt;VirtualHost 127.0.0.1&amp;gt;
+       ServerName  x.y:8000
+       DocumentRoot &quot;D:\projects\xxx\web&quot;
+      &amp;lt;Directory &quot;D:\projects\xxx\web&quot;&amp;gt;
+         RewriteEngine on
+         AllowOverride All
+      &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+</code></pre><p>重启Apache即可生效。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在&lt;code&gt;httpd-vhosts.conf&lt;/code&gt;中，新建如下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;amp;lt;VirtualHost 127.0.0.1&amp;amp;gt;
+       ServerName  x.y:8000
+       Document
+    
+    </summary>
+    
+    
+      <category term="apache" scheme="http://wiibe.xyz/tags/apache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS, Angular Material 与 Symfony 3 结合</title>
+    <link href="http://wiibe.xyz/2016/5/18/AngularJS-Angular-Material-%E4%B8%8E-Symfony-3-%E7%BB%93%E5%90%88/"/>
+    <id>http://wiibe.xyz/2016/5/18/AngularJS-Angular-Material-与-Symfony-3-结合/</id>
+    <published>2016-05-18T08:00:10.000Z</published>
+    <updated>2016-10-15T15:17:42.563Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先需要在父级模版中引入 <code>AngularJS</code> 和 <code>Angular Material</code>.</p>
+<pre><code>&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset('angular-material.css') }}&quot;&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic&quot;&amp;gt;
+
+&amp;lt;script src=&quot;{{ asset('angular.js') }}&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;{{ asset('angular-aria.js') }}&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;{{ asset('angular-animate.js') }}&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;{{ asset('angular-material.js') }}&quot;&amp;gt;&amp;lt;/script&amp;gt;
+`&lt;/pre&gt;
+
+在js文件中,写入:
+
+&lt;pre&gt;`angular.module(&apos;myApp&apos;,[&apos;ngMaterial&apos;])
+    .config(function($interpolateProvider){
+        $interpolateProvider.startSymbol(&apos;{[{&apos;).endSymbol(&apos;}]}&apos;);
+})
+    .controller(&apos;myController&apos;, myController);
+
+myController.$inject = [&apos;$scope&apos;];
+
+function myController( $scope ) {
+
+}`&lt;/pre&gt;
+
+最后,在twig模版中写scope变量时,需要写成:
+
+&lt;pre&gt;`{[{ scopeVariable }]}
+</code></pre><hr>
+<p>参考内容:</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/13671701/angularjs-twig-conflict-with-double-curly-braces" target="_blank" rel="external">http://stackoverflow.com/questions/13671701/angularjs-twig-conflict-with-double-curly-braces</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先需要在父级模版中引入 &lt;code&gt;AngularJS&lt;/code&gt; 和 &lt;code&gt;Angular Material&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{
+    
+    </summary>
+    
+    
+      <category term="angularjs" scheme="http://wiibe.xyz/tags/angularjs/"/>
+    
+      <category term="angular-material" scheme="http://wiibe.xyz/tags/angular-material/"/>
+    
+      <category term="symfony" scheme="http://wiibe.xyz/tags/symfony/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[jQuery] trim()</title>
+    <link href="http://wiibe.xyz/2016/5/9/jQuery-trim/"/>
+    <id>http://wiibe.xyz/2016/5/9/jQuery-trim/</id>
+    <published>2016-05-09T08:41:31.000Z</published>
+    <updated>2016-10-15T15:17:42.572Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们可以使用<code>trim()</code> 方法去掉字符串的前后空格，比如：</p>
+<pre><code>$(&apos;#id span&apos;).text().trim()
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们可以使用&lt;code&gt;trim()&lt;/code&gt; 方法去掉字符串的前后空格，比如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&amp;apos;#id span&amp;apos;).text().trim()
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="jquery" scheme="http://wiibe.xyz/tags/jquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Symfony]生成 setters/getters 遇到 Too many arguments 错误解决方法</title>
+    <link href="http://wiibe.xyz/2016/5/1/Symfony-%E7%94%9F%E6%88%90-setters-getters-%E9%81%87%E5%88%B0-Too-many-arguments-%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://wiibe.xyz/2016/5/1/Symfony-生成-setters-getters-遇到-Too-many-arguments-错误解决方法/</id>
+    <published>2016-05-01T14:42:49.000Z</published>
+    <updated>2016-10-15T15:17:42.568Z</updated>
+    
+    <content type="html"><![CDATA[<p>输入 <code>php bin/console doctrine:generate:entity myBundle:MyEntity</code> 后一直提示如下错误：</p>
+<blockquote>
+<p>[SymfonyComponentConsoleExceptionRuntimeException]   Too many<br>arguments.</p>
+</blockquote>
+<p>搜了一圈stackoverflow，后来试了一个命令：</p>
+<pre><code>php bin/console cache:clear
+</code></pre><p>问题就这样解决了0.0</p>
+<p>//如果使用的 <code>Symfony2</code> 那么上面的 <code>bin/console</code> 应该换成  <code>app/console</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;输入 &lt;code&gt;php bin/console doctrine:generate:entity myBundle:MyEntity&lt;/code&gt; 后一直提示如下错误：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[SymfonyComponentConsoleExcepti
+    
+    </summary>
+    
+    
+      <category term="symfony3" scheme="http://wiibe.xyz/tags/symfony3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Symfony3]删除默认bundle(AppBundle)</title>
+    <link href="http://wiibe.xyz/2016/5/1/Symfony3-%E5%88%A0%E9%99%A4%E9%BB%98%E8%AE%A4bundle-AppBundle/"/>
+    <id>http://wiibe.xyz/2016/5/1/Symfony3-删除默认bundle-AppBundle/</id>
+    <published>2016-05-01T11:22:10.000Z</published>
+    <updated>2016-10-15T15:17:42.568Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li><p>删除 <code>app\AppKernel.php</code>的 <code>registerBundles()</code> 相应 <code>appBundle</code> 部分.</p>
+</li>
+<li><p>删除<code>app\config\routing.yml</code> 中 <code>appBundle</code> 相应部分.</p>
+</li>
+<li><p>删除<code>src</code>目录下整个<code>appBundle</code>文件夹.</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;删除 &lt;code&gt;app\AppKernel.php&lt;/code&gt;的 &lt;code&gt;registerBundles()&lt;/code&gt; 相应 &lt;code&gt;appBundle&lt;/code&gt; 部分.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;删除&lt;code&gt;app\con
+    
+    </summary>
+    
+    
+      <category term="symfony3" scheme="http://wiibe.xyz/tags/symfony3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Grub Rescue</title>
+    <link href="http://wiibe.xyz/2016/4/28/Grub-Rescue/"/>
+    <id>http://wiibe.xyz/2016/4/28/Grub-Rescue/</id>
+    <published>2016-04-28T04:49:52.000Z</published>
+    <updated>2016-10-15T15:17:42.565Z</updated>
+    
+    <content type="html"><![CDATA[<p>grub rescue&gt;</p>
+<pre><code>ls
+
+ls (hd0,x)/boot/grub
+
+set root=(hd0,x)
+
+set prefix=(hd0,x)/boot/grub
+
+insmod normal
+
+normal
+
+sudo update-grub
+
+sudo apt-get install grub-efi
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;grub rescue&amp;gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls
+
+ls (hd0,x)/boot/grub
+
+set root=(hd0,x)
+
+set prefix=(hd0,x)/boot/grub
+
+insmod normal
+
+normal
+
+sudo upda
+    
+    </summary>
+    
+    
+      <category term="ubuntu" scheme="http://wiibe.xyz/tags/ubuntu/"/>
+    
+      <category term="grub2" scheme="http://wiibe.xyz/tags/grub2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 下挂载EFI分区</title>
+    <link href="http://wiibe.xyz/2016/4/28/Windows-%E4%B8%8B%E6%8C%82%E8%BD%BDEFI%E5%88%86%E5%8C%BA/"/>
+    <id>http://wiibe.xyz/2016/4/28/Windows-下挂载EFI分区/</id>
+    <published>2016-04-28T04:10:12.000Z</published>
+    <updated>2016-10-15T15:17:42.571Z</updated>
+    
+    <content type="html"><![CDATA[<p>以管理员身份运行<code>cmd</code>， 输入：</p>
+<pre><code>diskpart
+list disk
+sel disk x
+list part
+sel part x //ESP分区
+ass //挂载并分配盘符
+</code></pre><p>接下来管理员权限运行编辑器就可以打开分区目录进行修改了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以管理员身份运行&lt;code&gt;cmd&lt;/code&gt;， 输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;diskpart
+list disk
+sel disk x
+list part
+sel part x //ESP分区
+ass //挂载并分配盘符
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;接下来
+    
+    </summary>
+    
+    
+      <category term="windows10" scheme="http://wiibe.xyz/tags/windows10/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AngularJS] ngMesages</title>
+    <link href="http://wiibe.xyz/2016/4/12/AngularJS-ngMesages/"/>
+    <id>http://wiibe.xyz/2016/4/12/AngularJS-ngMesages/</id>
+    <published>2016-04-12T14:56:49.000Z</published>
+    <updated>2016-10-15T15:17:42.563Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于 <code>ngMessages</code> 官方文档地址 <a href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages" target="_blank" rel="external">在这里</a>，可是却非常不详细，只列出了三种情况<code>required</code>、<code>minlength</code>、<code>maxlength</code>.<br>如果在 <code>element</code> 里写了自己定义的规则 <code>ng-pattern</code>，需要给出当正则生效时给出的 <code>ngMessage</code>，就需要这样写：</p>
+<pre><code>&amp;lt;form name=&quot;myForm&quot;&amp;gt;
+  &amp;lt;label&amp;gt;
+    &amp;lt;input name=&quot;myField&quot;
+            type=&quot;text&quot;
+            ng-model=&quot;myName&quot;
+            ng-pattern=&quot;/{expression}/&quot;
+            /&amp;gt;
+    &amp;lt;/label&amp;gt;
+  &amp;lt;div ng-messages=&quot;myForm.myField.$error&quot;&amp;gt;
+    &amp;lt;div ng-message=&quot;minlength&quot;&amp;gt;...&amp;lt;/div&amp;gt;
+    &amp;lt;div ng-message=&quot;pattern&quot;&amp;gt;...&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/form&amp;gt;`&lt;/pre&gt;
+
+一种调试的方法：
+
+&lt;pre&gt;`&amp;lt;pre&amp;gt;{{myForm.myField.$error}}&amp;lt;/pre&amp;gt;
+//错误内容形式：{ &quot;pattern&quot;: true }
+</code></pre><p>这样的话直观地看到错误内容，相应的指定错误消息了</p>
+<p>参考内容：<br><a href="http://www.sitepoint.com/easy-form-validation-angularjs-ngmessages/" target="_blank" rel="external">Easy Form Validation in AngularJS with ngMessages</a><br><a href="http://blog.thoughtram.io/2015/06/06/ng-messages-revisited.html" target="_blank" rel="external">ngMessages revisited</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于 &lt;code&gt;ngMessages&lt;/code&gt; 官方文档地址 &lt;a href=&quot;https://docs.angularjs.org/api/ngMessages/directive/ngMessages&quot; target=&quot;_blank&quot; rel=&quot;external&quot;
+    
+    </summary>
+    
+    
+      <category term="angularjs" scheme="http://wiibe.xyz/tags/angularjs/"/>
+    
+      <category term="ngmessages" scheme="http://wiibe.xyz/tags/ngmessages/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[JavaScript]字符型转换为布尔型</title>
+    <link href="http://wiibe.xyz/2016/4/6/JavaScript-%E5%AD%97%E7%AC%A6%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B8%83%E5%B0%94%E5%9E%8B/"/>
+    <id>http://wiibe.xyz/2016/4/6/JavaScript-字符型转换为布尔型/</id>
+    <published>2016-04-06T10:15:17.000Z</published>
+    <updated>2016-10-15T15:17:42.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>原格式为：</p>
+<pre><code>{
+    &quot;a&quot;: &quot;1&quot;,
+    &quot;b&quot;: &quot;0&quot;
+}`&lt;/pre&gt;
+
+目标格式：
+
+&lt;pre&gt;`{
+    &quot;a&quot;: true,
+    &quot;b&quot;: false
+}`&lt;/pre&gt;
+
+关键语句：
+
+&lt;pre&gt;`var arr = [];
+for (var i in obj){
+            var  temp  =  {};
+            temp.a = i;
+            temp.value = !!parseInt(obj[i]);
+
+           arr.push(temp);
+        }
+return arr;
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原格式为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;a&amp;quot;: &amp;quot;1&amp;quot;,
+    &amp;quot;b&amp;quot;: &amp;quot;0&amp;quot;
+}`&amp;lt;/pre&amp;gt;
+
+目标格式：
+
+&amp;lt;pre&amp;gt;`{
+    &amp;quot;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://wiibe.xyz/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSON数据遍历，并转变形式输出</title>
+    <link href="http://wiibe.xyz/2016/4/6/JSON%E6%95%B0%E6%8D%AE%E9%81%8D%E5%8E%86%EF%BC%8C%E5%B9%B6%E8%BD%AC%E5%8F%98%E5%BD%A2%E5%BC%8F%E8%BE%93%E5%87%BA/"/>
+    <id>http://wiibe.xyz/2016/4/6/JSON数据遍历，并转变形式输出/</id>
+    <published>2016-04-06T10:09:13.000Z</published>
+    <updated>2016-10-15T15:17:42.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>代码如下：</p>
+<pre><code>var originParameters = {
+      &quot;5&quot;: {
+          &quot;4&quot;: 5,
+          &quot;5&quot;: &quot;1&quot;,
+          &quot;6&quot;: &quot;1&quot;,
+          &quot;10&quot;: &quot;1&quot;
+      }
+};
+
+var arr = originParameters[5];
+console.log(arr);
+console.log(&quot;------&quot;);
+var FieldParameters = [];
+for (var i in arr){
+  var  temp  =  {};
+  temp.FieldParameterId = i;
+  temp.value = arr[i];
+  FieldParameters.push(temp);
+}
+console.log(FieldParameters);
+console.log(&quot;------&quot;);
+//console.log(JSON.stringify(FieldParameters));
+console.log(&quot;------&quot;);
+
+var $scope = {};
+$scope.formData = {};
+$scope.formData.AttributeParameters = FieldParameters;
+console.log($scope.formData);
+</code></pre><p>输出结果如下：<br><img src="/img/bVuDVy" alt="Output" title="Output"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var originParameters = {
+      &amp;quot;5&amp;quot;: {
+          &amp;quot;4&amp;quot;: 5,
+          &amp;quot;5&amp;quot;: &amp;quot;1&amp;quot;,
+
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://wiibe.xyz/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Homestead 配置文件设置</title>
+    <link href="http://wiibe.xyz/2016/4/2/Homestead-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://wiibe.xyz/2016/4/2/Homestead-配置文件设置/</id>
+    <published>2016-04-02T02:26:16.000Z</published>
+    <updated>2016-10-15T15:17:42.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>内容如下，主要是共享目录的挂载：</p>
+<pre><code>---
+ip: &quot;192.168.10.10&quot;
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: D:/projects/stuTrac
+      to: /home/vagrant/Code
+
+    - map: D:/projects
+      to: /home/projects
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/public
+
+databases:
+    - homestead
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内容如下，主要是共享目录的挂载：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+ip: &amp;quot;192.168.10.10&amp;quot;
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+    
+    </summary>
+    
+    
+      <category term="homestead" scheme="http://wiibe.xyz/tags/homestead/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache配置本地访问地址</title>
+    <link href="http://wiibe.xyz/2016/3/27/Apache%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AE%E5%9C%B0%E5%9D%80/"/>
+    <id>http://wiibe.xyz/2016/3/27/Apache配置本地访问地址/</id>
+    <published>2016-03-27T02:31:15.000Z</published>
+    <updated>2016-10-15T15:17:42.564Z</updated>
+    
+    <content type="html"><![CDATA[<p>本地要访问特定文件地址时，如果放在<code>xampp</code>的根目录里，找起来会特别麻烦。<br>如果将该文件夹映射到localhost里，相信就会方便很多，而且便于集中管理。</p>
+<p>比如我的本地文件夹地址是<code>D:\projects\test</code>，在<code>httpd.conf</code>里，添加下面内容：</p>
+<pre><code>#映射地址为localhost/z
+Alias /z &quot;D:/projects&quot;
+&amp;lt;Directory &quot;D:/projects&quot;&amp;gt;
+    Options Indexes FollowSymLinks Includes ExecCGI
+    #如果不想列出目录则将上面一行换成下面一行
+    #Options None 
+    AllowOverride All
+    Require all granted
+&amp;lt;/Directory&amp;gt;
+</code></pre><p>那么，就可以直接访问了。<br><img src="/img/bVtRPa" alt="访问效果" title="访问效果"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本地要访问特定文件地址时，如果放在&lt;code&gt;xampp&lt;/code&gt;的根目录里，找起来会特别麻烦。&lt;br&gt;如果将该文件夹映射到localhost里，相信就会方便很多，而且便于集中管理。&lt;/p&gt;
+&lt;p&gt;比如我的本地文件夹地址是&lt;code&gt;D:\projects\test&lt;/
+    
+    </summary>
+    
+    
+      <category term="apache" scheme="http://wiibe.xyz/tags/apache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Symfong Book 2.3 学习过程中遇到的一些问题</title>
+    <link href="http://wiibe.xyz/2015/5/15/Symfong-Book-2-3-%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+    <id>http://wiibe.xyz/2015/5/15/Symfong-Book-2-3-学习过程中遇到的一些问题/</id>
+    <published>2015-05-15T13:54:30.000Z</published>
+    <updated>2016-10-15T15:17:42.568Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>问题一</li>
+</ul>
+<p>书中P47中，4-7这处的代码：</p>
+<pre><code>// src/Acme/DemoBundle/Controller/RandomController.php
+namespace Acme\DemoBundle\Controller;
+use Symfony\Component\HttpFoundation\Response;
+class RandomController
+{
+public function indexAction($limit)
+{
+return new Response(
+&apos;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Number: &apos;.rand(1, $limit).&apos;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&apos;
+);
+}
+}
+</code></pre><p>应当在前后加入<code>&amp;lt;?php ?&amp;gt;</code>标签</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;问题一&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;书中P47中，4-7这处的代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// src/Acme/DemoBundle/Controller/RandomController.php
+namespace Acme\DemoBundle\
+    
+    </summary>
+    
+    
+      <category term="symfony" scheme="http://wiibe.xyz/tags/symfony/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 14.04 环境下配置Symfony 2.3</title>
+    <link href="http://wiibe.xyz/2015/5/8/Ubuntu-14-04-%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%85%8D%E7%BD%AESymfony-2-3/"/>
+    <id>http://wiibe.xyz/2015/5/8/Ubuntu-14-04-环境下配置Symfony-2-3/</id>
+    <published>2015-05-08T11:22:17.000Z</published>
+    <updated>2016-10-15T15:17:42.569Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先，我们需要安装PHP5</p>
+<pre><code>$ sudo apt-get install php5
+`&lt;/pre&gt;
+
+接下来
+
+&lt;pre&gt;`$ curl -LsS http://symfony.com/installer &amp;gt; symfony.phar
+$ sudo mv symfony.phar /usr/local/bin/symfony
+$ chmod a+x /usr/local/bin/symfony
+`&lt;/pre&gt;
+
+接下来，我们需要安装2.3版本的Symfony
+
+&lt;pre&gt;`$ symfony new my_project 2.3
+`&lt;/pre&gt;
+
+过程可能会比较漫长。
+
+安装提示成功以后，根据提示，输入
+
+&lt;pre&gt;`$ php my_project/app/check.php
+`&lt;/pre&gt;
+
+检查错误。
+
+* * *
+
+遇到的问题：
+
+1.data.timezone()
+
+运行
+
+&lt;pre&gt;`$ locate php.ini
+`&lt;/pre&gt;
+
+查找php.ini地址，找到timezone具体行数，将前面的注释取消，输入
+
+&lt;pre&gt;`date.timezone = Asia/Chongqing
+`&lt;/pre&gt;
+
+具体timezone参考[这里](http://php.net/manual/zh/timezones.asia.php)
+
+2.WARNING  intl extension should be available
+
+          Install and enable the intl extension (used for validators).
+
+输入命令：
+
+&lt;pre&gt;`$ sudo apt-get install php5-intl
+`&lt;/pre&gt;
+
+3.WARNING  PDO should have some drivers installed (currently available: none)
+
+          Install PDO drivers (mandatory for Doctrine).
+
+输入命令：
+
+&lt;pre&gt;`$ sudo apt-get install php5-mysql
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，我们需要安装PHP5&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install php5
+`&amp;lt;/pre&amp;gt;
+
+接下来
+
+&amp;lt;pre&amp;gt;`$ curl -LsS http://symfony.com/installer &amp;amp;gt
+    
+    </summary>
+    
+    
+      <category term="symfony" scheme="http://wiibe.xyz/tags/symfony/"/>
+    
+      <category term="ubuntu" scheme="http://wiibe.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给Hexo添加多说评论框</title>
+    <link href="http://wiibe.xyz/2014/8/22/%E7%BB%99Hexo%E6%B7%BB%E5%8A%A0%E5%A4%9A%E8%AF%B4%E8%AF%84%E8%AE%BA%E6%A1%86/"/>
+    <id>http://wiibe.xyz/2014/8/22/给Hexo添加多说评论框/</id>
+    <published>2014-08-22T13:17:17.000Z</published>
+    <updated>2016-10-15T15:17:42.574Z</updated>
+    
+    <content type="html"><![CDATA[<p>在\themes\landscape\layout_partial\article.ejs添加如下代码</p>
+<pre><code>&lt;span class=&quot;vbscript&quot;&gt;&amp;lt;% &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!index &amp;amp;&amp;amp; post.comments){ %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;comments&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- Duoshuo Comment BEGIN --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;ds-thread&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;
+      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; duoshuoQuery = {short_name:&lt;span class=&quot;string&quot;&gt;&quot;your_shortname&quot;&lt;/span&gt;};
+        (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+          &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ds = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&apos;script&apos;&lt;/span&gt;);
+          ds.type = &lt;span class=&quot;string&quot;&gt;&apos;text/javascript&apos;&lt;/span&gt;;ds.async = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;
+          ds.src = &lt;span class=&quot;string&quot;&gt;&apos;http://static.duoshuo.com/embed.js&apos;&lt;/span&gt;;
+          ds.charset = &lt;span class=&quot;string&quot;&gt;&apos;UTF-8&apos;&lt;/span&gt;;
+          (&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&apos;head&apos;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]
+          || &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&apos;body&apos;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]).appendChild(ds);
+        })();
+  &lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- Duoshuo Comment END --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;section&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;vbscript&quot;&gt;&amp;lt;% } %&amp;gt;&lt;/span&gt;
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在\themes\landscape\layout_partial\article.ejs添加如下代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&amp;quot;vbscript&amp;quot;&amp;gt;&amp;amp;lt;% &amp;lt;span class=&amp;quot;
+    
+    </summary>
+    
+    
+      <category term="折腾" scheme="http://wiibe.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+      <category term="hexo" scheme="http://wiibe.xyz/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>

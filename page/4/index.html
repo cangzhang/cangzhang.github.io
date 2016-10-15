@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WiiBe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="WiiBe">
+<meta property="og:url" content="http://wiibe.xyz/page/4/index.html">
+<meta property="og:site_name" content="WiiBe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WiiBe">
+  
+    <link rel="alternate" href="/atom.xml" title="WiiBe" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">WiiBe</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Try to be a better man.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wiibe.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Ubuntu-14-04-环境下配置Symfony-2-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/5/8/Ubuntu-14-04-环境下配置Symfony-2-3/" class="article-date">
+  <time datetime="2015-05-08T11:22:17.000Z" itemprop="datePublished">2015-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/5/8/Ubuntu-14-04-环境下配置Symfony-2-3/">Ubuntu 14.04 环境下配置Symfony 2.3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，我们需要安装PHP5</p>
+<pre><code>$ sudo apt-get install php5
+`&lt;/pre&gt;
+
+接下来
+
+&lt;pre&gt;`$ curl -LsS http://symfony.com/installer &amp;gt; symfony.phar
+$ sudo mv symfony.phar /usr/local/bin/symfony
+$ chmod a+x /usr/local/bin/symfony
+`&lt;/pre&gt;
+
+接下来，我们需要安装2.3版本的Symfony
+
+&lt;pre&gt;`$ symfony new my_project 2.3
+`&lt;/pre&gt;
+
+过程可能会比较漫长。
+
+安装提示成功以后，根据提示，输入
+
+&lt;pre&gt;`$ php my_project/app/check.php
+`&lt;/pre&gt;
+
+检查错误。
+
+* * *
+
+遇到的问题：
+
+1.data.timezone()
+
+运行
+
+&lt;pre&gt;`$ locate php.ini
+`&lt;/pre&gt;
+
+查找php.ini地址，找到timezone具体行数，将前面的注释取消，输入
+
+&lt;pre&gt;`date.timezone = Asia/Chongqing
+`&lt;/pre&gt;
+
+具体timezone参考[这里](http://php.net/manual/zh/timezones.asia.php)
+
+2.WARNING  intl extension should be available
+
+          Install and enable the intl extension (used for validators).
+
+输入命令：
+
+&lt;pre&gt;`$ sudo apt-get install php5-intl
+`&lt;/pre&gt;
+
+3.WARNING  PDO should have some drivers installed (currently available: none)
+
+          Install PDO drivers (mandatory for Doctrine).
+
+输入命令：
+
+&lt;pre&gt;`$ sudo apt-get install php5-mysql
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2015/5/8/Ubuntu-14-04-环境下配置Symfony-2-3/" data-id="ciubdiepw0013zc557i950lff" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/symfony/">symfony</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-给Hexo添加多说评论框" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/8/22/给Hexo添加多说评论框/" class="article-date">
+  <time datetime="2014-08-22T13:17:17.000Z" itemprop="datePublished">2014-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/8/22/给Hexo添加多说评论框/">给Hexo添加多说评论框</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在\themes\landscape\layout_partial\article.ejs添加如下代码</p>
+<pre><code>&lt;span class=&quot;vbscript&quot;&gt;&amp;lt;% &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!index &amp;amp;&amp;amp; post.comments){ %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;comments&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- Duoshuo Comment BEGIN --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;ds-thread&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;
+      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; duoshuoQuery = {short_name:&lt;span class=&quot;string&quot;&gt;&quot;your_shortname&quot;&lt;/span&gt;};
+        (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+          &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ds = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&apos;script&apos;&lt;/span&gt;);
+          ds.type = &lt;span class=&quot;string&quot;&gt;&apos;text/javascript&apos;&lt;/span&gt;;ds.async = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;
+          ds.src = &lt;span class=&quot;string&quot;&gt;&apos;http://static.duoshuo.com/embed.js&apos;&lt;/span&gt;;
+          ds.charset = &lt;span class=&quot;string&quot;&gt;&apos;UTF-8&apos;&lt;/span&gt;;
+          (&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&apos;head&apos;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]
+          || &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&apos;body&apos;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]).appendChild(ds);
+        })();
+  &lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- Duoshuo Comment END --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;section&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;vbscript&quot;&gt;&amp;lt;% } %&amp;gt;&lt;/span&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2014/8/22/给Hexo添加多说评论框/" data-id="ciubdiere001nzc55v03tl19k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/折腾/">折腾</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-获取指定DZ-X主题内容并过滤ubb标签-PHP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/8/22/获取指定DZ-X主题内容并过滤ubb标签-PHP/" class="article-date">
+  <time datetime="2014-08-22T11:55:09.000Z" itemprop="datePublished">2014-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/8/22/获取指定DZ-X主题内容并过滤ubb标签-PHP/">获取指定DZ!X主题内容并过滤ubb标签[PHP]</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码如下：</p>
+<pre><code>    &lt;span class=&quot;php&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;capword&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;{
+    &lt;span class=&quot;comment&quot;&gt;//连接数据库&lt;/span&gt;
+    &lt;span class=&quot;variable&quot;&gt;$mysql_server_name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&apos;localhost&apos;&lt;/span&gt;; 
+    &lt;span class=&quot;variable&quot;&gt;$mysql_username&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&apos;root&apos;&lt;/span&gt;; 
+    &lt;span class=&quot;variable&quot;&gt;$mysql_password&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&apos;root&apos;&lt;/span&gt;;
+    &lt;span class=&quot;variable&quot;&gt;$mysql_database&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&apos;dz&apos;&lt;/span&gt;;
+
+    &lt;span class=&quot;variable&quot;&gt;$conn&lt;/span&gt;=mysql_connect(&lt;span class=&quot;variable&quot;&gt;$mysql_server_name&lt;/span&gt;,&lt;span class=&quot;variable&quot;&gt;$mysql_username&lt;/span&gt;,&lt;span class=&quot;variable&quot;&gt;$mysql_password&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;die&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;error connecting&quot;&lt;/span&gt;) ; 
+    mysql_query(&lt;span class=&quot;string&quot;&gt;&quot;set names &apos;utf8&apos;&quot;&lt;/span&gt;); 
+    mysql_select_db(&lt;span class=&quot;variable&quot;&gt;$mysql_database&lt;/span&gt;); 
+    &lt;span class=&quot;variable&quot;&gt;$sql&lt;/span&gt; =&lt;span class=&quot;string&quot;&gt;&quot;SELECT message FROM pre_forum_post WHERE tid=1 and pid=1 and fid=2 and first=1 and invisible=0 &quot;&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//pid tid fid确定着具体主题，first代表一楼（即主贴内容）&lt;/span&gt;
+    &lt;span class=&quot;variable&quot;&gt;$result&lt;/span&gt; = mysql_query(&lt;span class=&quot;variable&quot;&gt;$sql&lt;/span&gt;,&lt;span class=&quot;variable&quot;&gt;$conn&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;die&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&apos;无法连接!&apos;&lt;/span&gt;.mysql_error);
+    &lt;span class=&quot;variable&quot;&gt;$str&lt;/span&gt;;
+
+    &lt;span class=&quot;comment&quot;&gt;//将读取内容赋值$str,并进行过滤&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;( &lt;span class=&quot;variable&quot;&gt;$row&lt;/span&gt; = mysql_fetch_array(&lt;span class=&quot;variable&quot;&gt;$result&lt;/span&gt;) ){
+        &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$row&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$value&lt;/span&gt;){}
+        &lt;span class=&quot;variable&quot;&gt;$str&lt;/span&gt;=&lt;span class=&quot;variable&quot;&gt;$value&lt;/span&gt;.&lt;span class=&quot;string&quot;&gt;&apos;&apos;&lt;/span&gt;;
+        &lt;span class=&quot;comment&quot;&gt;//echo $str;&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;//echo &quot;&amp;lt;br/&amp;gt;&quot;;&lt;/span&gt;
+        &lt;span class=&quot;variable&quot;&gt;$str&lt;/span&gt;=preg_replace(&lt;span class=&quot;string&quot;&gt;&apos;/\[.*?\]/is&apos;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&apos;&apos;&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$str&lt;/span&gt;);
+        &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; substr(&lt;span class=&quot;variable&quot;&gt;$str&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;199&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//指定输出长度&lt;/span&gt;
+    }   
+    mysql_close(&lt;span class=&quot;variable&quot;&gt;$conn&lt;/span&gt;);
+}
+&lt;span class=&quot;preprocessor&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2014/8/22/获取指定DZ-X主题内容并过滤ubb标签-PHP/" data-id="ciubdierh001pzc55q3pl9c2i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码/">代码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-修改Chrome默认搜索引擎为Google-com" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/7/11/修改Chrome默认搜索引擎为Google-com/" class="article-date">
+  <time datetime="2014-07-11T06:33:00.000Z" itemprop="datePublished">2014-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/7/11/修改Chrome默认搜索引擎为Google-com/">修改Chrome默认搜索引擎为Google.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>关闭所有的Chrome窗口</li>
+<li>进入Chrome的用户设置文件夹，对于Windows Vista和Windows 7用户进入已经变为了 <code>%LOCALAPPDATA%\Google\Chrome\User Data\Default\Preferences</code>3.  用记事本打开<code>Preferences</code>文件</li>
+<li>找到<code>last_known_google_url</code>和 <code>last_prompted_google_url</code>这两行，修改为Google.com，或者其它你想用的Google本地化搜索域名.</li>
+<li>保存文件，重新打开Chrome，即可看到变化.<br><img src="http://segmentfault.com/img/bVcGL6" alt="TEST"></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2014/7/11/修改Chrome默认搜索引擎为Google-com/" data-id="ciubdieqo001azc55m4t3hx6y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Chrome/">Google Chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/折腾/">折腾</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Google-Chrome自由安装第三方插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/7/3/Google-Chrome自由安装第三方插件/" class="article-date">
+  <time datetime="2014-07-03T04:00:26.000Z" itemprop="datePublished">2014-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/7/3/Google-Chrome自由安装第三方插件/">Google Chrome自由安装第三方插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>涵盖 Windows XP/7 、Mac OS X 、Linux 的 Chrome 第三方应用安装策略说明。</p>
+<p>听说众多 Chrome 粉丝为 Google 禁止安装第三方应用的问题感到相当烦恼。那么我就来</p>
+<p>简单地解救一下。</p>
+<p>实现的方法,其实只是利用了 Chrome 为企业批量配置 Chrome 浏览器提供的策略配置功能罢了,这是 N 年前就有的功能了,只是方法麻烦了一点,大家没了解过。</p>
+<p>Windows XP 在进行配置前得先安装群组策略管理工具(GPMC),以及该工具所须的组件:</p>
+<ol>
+<li><p>Windows 图像处理组件(WIC)  <a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=32" target="_blank" rel="external">http://www.microsoft.com/zh-cn/download/details.aspx?id=32</a></p>
+</li>
+<li><p>Microsoft .NET Framework 1.1  <a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=26" target="_blank" rel="external">http://www.microsoft.com/zh-cn/download/details.aspx?id=26</a></p>
+</li>
+<li><p>Group Policy Management Console (GPMC) with Service Pack 1  <a href="http://www.microsoft.com/zh-CN/download/details.aspx?id=21895" target="_blank" rel="external">http://www.microsoft.com/zh-CN/download/details.aspx?id=21895</a></p>
+</li>
+</ol>
+<p>然后,我没有 Windows 7 可供测试(求支援),我只是在用 XP ,所以我有点标题党了……</p>
+<p>先下载一个官方提供的压缩包并解压缩:<a href="http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip" target="_blank" rel="external">http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip</a></p>
+<p>按 Ctrl­R 调出运行窗口,输入 gpedit.msc并运行之:</p>
+<ol>
+<li><p>选择左侧窗口的「计算机配置」——「管理模板」,鼠标右键单击,选择「添加/删除模板」。</p>
+</li>
+<li><p>按左下角「添加」按钮添加刚才解压出来的文件夹的 windows\adm\zh-­CN\chrome.adm文件</p>
+</li>
+<li><p>左侧出现了「计算机配置——管理模板(——「经典管理模板(ADM)」)——Google——Google Chrome」的目录。</p>
+</li>
+<li><p>进入子目录「扩展程序」,双击「配置扩展程序、应用和用户脚本安装源」开始修改配置。</p>
+</li>
+<li><p>在出现的窗口中选择「已启用」,然后点击「显示」。</p>
+</li>
+<li><p>在新出现的窗口中点击「添加」,输入 <em>://</em>/*,确定。</p>
+</li>
+<li><p>继续按「确定」确认修改并关闭窗口,再按剩下窗口右下的「应用」。</p>
+</li>
+</ol>
+<p>最后打开 Chrome 的 chrome://policy 页面,击左上方的按钮重新加载策略信息便可令设置即时生效。</p>
+<p>没有图片总是有点不太好,可以参考这篇官方文章:<a href="https://support.google.com/installer/answer/146164?hl=en" target="_blank" rel="external">https://support.google.com/installer/answer/146164?hl=en</a></p>
+<p>中文版(没配图):<a href="https://support.google.com/installer/answer/146164?hl=zh-Hans" target="_blank" rel="external">https://support.google.com/installer/answer/146164?hl=zh-Hans</a></p>
+<p>不通过 chrome://plugins 页面停用 update 插件来取消自动更新的方法也在里面。</p>
+<p>[参考资料]Exhausitive List of All Manageable Policies <a href="http://www.chromium.org/administrators/policy-list-3" target="_blank" rel="external">http://www.chromium.org/administrators/policy-list-3</a></p>
+<p>Policy Template for Windows <a href="http://www.chromium.org/administrators/policy-templates" target="_blank" rel="external">http://www.chromium.org/administrators/policy-templates</a></p>
+<p><a href="http://www.chromium.org/administrators/mac-quick-start" target="_blank" rel="external">http://www.chromium.org/administrators/mac-quick-start</a></p>
+<p><a href="http://www.chromium.org/administrators/linux-quick-start" target="_blank" rel="external">http://www.chromium.org/administrators/linux-quick-start</a></p>
+<p>原文转载自 铅笔的博客<br><a href="https://drive.google.com/folderview?id=0By-rJN-esrnrWVc2ZWJhZlJ2cDA&amp;usp=sharing" target="_blank" rel="external">https://drive.google.com/folderview?id=0By-rJN-esrnrWVc2ZWJhZlJ2cDA&amp;usp=sharing</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2014/7/3/Google-Chrome自由安装第三方插件/" data-id="ciubdieon000bzc552igswbka" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Chrome/">Google Chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/折腾/">折腾</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-安装配置Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/6/13/安装配置Hexo/" class="article-date">
+  <time datetime="2014-06-13T03:41:19.000Z" itemprop="datePublished">2014-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/6/13/安装配置Hexo/">安装配置Hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我又回归了！放弃了独立空间，放弃了独立域名（主要原因是没钱我会说吗，╭(╯^╰)╮</p>
+<p>Hexo的官网：<a href="http://zespia.tw/hexo/，" target="_blank" rel="external">http://zespia.tw/hexo/，</a> 具体步骤：<a href="http://zespia.tw/hexo/docs/" target="_blank" rel="external">http://zespia.tw/hexo/docs/</a></p>
+<p>事实上，作者已经写的非常详细。我只想补充一些自己的经验，以及一些可能会遇到的问题。</p>
+<p>我的 <strong>配置文件</strong> 内容主要如下（关键部分）：</p>
+<h3 id="Site-部分："><a href="#Site-部分：" class="headerlink" title="Site 部分："></a>Site 部分：</h3><p><code>title: 未必博客
+subtitle: Where cangzhang makes it.
+description:
+author: cangzhang
+email: cangzan@gmail.com
+language: zh-CN</code></p>
+<h3 id="Extensions-部分："><a href="#Extensions-部分：" class="headerlink" title="Extensions 部分："></a>Extensions 部分：</h3><p><code>theme: landscape
+exclude_generator:</code></p>
+<ul>
+<li>hexo-generator-feed</li>
+</ul>
+<h3 id="Deploy-部分："><a href="#Deploy-部分：" class="headerlink" title="Deploy 部分："></a>Deploy 部分：</h3><p><code>deploy:
+  type: github
+  repository: git@github.com:cangzhang/cangzhang.github.io.git
+  branch: master</code></p>
+<h3 id="可能遇到的问题："><a href="#可能遇到的问题：" class="headerlink" title="可能遇到的问题："></a>可能遇到的问题：</h3><p><code>求助 fatal: &amp;#39;furtee.github.com&amp;#39; does not appear to be a git repository</code><br><a href="https://github.com/tommy351/hexo/issues/29" target="_blank" rel="external">https://github.com/tommy351/hexo/issues/29</a></p>
+<p><code>git - Error when push commits with Github: fatal: could not read Username - Stack Overflow</code><br><a href="http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username" target="_blank" rel="external">http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username</a></p>
+<p>—-EOF—-</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2014/6/13/安装配置Hexo/" data-id="ciubdier0001ezc5524wu31ym" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOL/">AOL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD安装/">AutoCAD安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD错误/">AutoCAD错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Pages建立博客/">Github Pages建立博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Chrome/">Google Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text-3/">Sublime Text 3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-Sub-process-错误/">Ubuntu Sub-process 错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu建立程序快捷方式/">Ubuntu建立程序快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-material/">angular-material</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-C2275/">error C2275</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub2/">grub2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homestead/">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lamp/">lamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ngmessages/">ngmessages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python学习/">python学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-破解/">sublime text 破解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime-text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symfony/">symfony</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symfony3/">symfony3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows10/">windows10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/折腾/">折腾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络转载/">网络转载</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AOL/" style="font-size: 10px;">AOL</a> <a href="/tags/AutoCAD安装/" style="font-size: 10px;">AutoCAD安装</a> <a href="/tags/AutoCAD错误/" style="font-size: 10px;">AutoCAD错误</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Github-Pages建立博客/" style="font-size: 10px;">Github Pages建立博客</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Google-Chrome/" style="font-size: 13.33px;">Google Chrome</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Sublime-Text-3/" style="font-size: 10px;">Sublime Text 3</a> <a href="/tags/Ubuntu-Sub-process-错误/" style="font-size: 10px;">Ubuntu Sub-process 错误</a> <a href="/tags/Ubuntu建立程序快捷方式/" style="font-size: 10px;">Ubuntu建立程序快捷方式</a> <a href="/tags/angular-material/" style="font-size: 10px;">angular-material</a> <a href="/tags/angularjs/" style="font-size: 16.67px;">angularjs</a> <a href="/tags/apache/" style="font-size: 13.33px;">apache</a> <a href="/tags/error-C2275/" style="font-size: 10px;">error C2275</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homestead/" style="font-size: 10px;">homestead</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/lamp/" style="font-size: 10px;">lamp</a> <a href="/tags/ngmessages/" style="font-size: 10px;">ngmessages</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/python学习/" style="font-size: 10px;">python学习</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/sublime-text-破解/" style="font-size: 10px;">sublime text 破解</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime-text</a> <a href="/tags/symfony/" style="font-size: 16.67px;">symfony</a> <a href="/tags/symfony3/" style="font-size: 13.33px;">symfony3</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/windows10/" style="font-size: 10px;">windows10</a> <a href="/tags/代码/" style="font-size: 10px;">代码</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/折腾/" style="font-size: 20px;">折腾</a> <a href="/tags/网络转载/" style="font-size: 10px;">网络转载</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/8/17/Sublime-Text-配置JavaScript-PHP-build-system/">[Sublime Text] 配置JavaScript, PHP build system</a>
+          </li>
+        
+          <li>
+            <a href="/2016/8/4/Ubuntu-16-04-配置-LAMP-环境（PHP7）/">Ubuntu 16.04 配置 LAMP 环境（PHP7）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/7/1/JavaScript-获取当前时间并转换为-UTC-时间字符串/">[JavaScript] 获取当前时间并转换为 UTC 时间字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/6/7/Behat-Selenium-设置-Chrome-为默认浏览器-amp-更改窗口大小为Maximize/">[Behat] Selenium 设置 Chrome 为默认浏览器 &amp;amp; 更改窗口大小为Maximize</a>
+          </li>
+        
+          <li>
+            <a href="/2016/6/2/AngularJS-重置表单class-ng-dirty/">[AngularJS] 重置表单class ng-dirty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 cangzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
