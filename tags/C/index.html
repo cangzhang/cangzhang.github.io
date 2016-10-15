@@ -1,200 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Tag: C | WiiBe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WiiBe">
-<meta property="og:url" content="http://wiibe.xyz/tags/C/index.html">
-<meta property="og:site_name" content="WiiBe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WiiBe">
-  
-    <link rel="alternate" href="/atom.xml" title="WiiBe" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+extends partial/layout
+include mixins/container
+include mixins/paginator
 
-</head>
+block title
+  title
+    if page.archive
+        != __('Archives') + " · " + config.title
+    if page.tag
+        != page.tag + " · " + config.title
+    if page.category
+        != page.category + " · " + config.title
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">WiiBe</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Try to be a better man.</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wiibe.xyz"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/2/14/C-错误C2275的解决方法/" class="archive-article-date">
-  <time datetime="2014-02-14T12:47:46.000Z" itemprop="datePublished">Feb 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/2/14/C-错误C2275的解决方法/">[C]错误C2275的解决方法</a>
-    </h1>
-  
+block container
+  if page.archive
+    +archive()
+  if page.tag
+    +tag()
+  if page.category
+    +category()
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOL/">AOL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD安装/">AutoCAD安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD错误/">AutoCAD错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Pages建立博客/">Github Pages建立博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Chrome/">Google Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text-3/">Sublime Text 3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-Sub-process-错误/">Ubuntu Sub-process 错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu建立程序快捷方式/">Ubuntu建立程序快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-material/">angular-material</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-C2275/">error C2275</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub2/">grub2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homestead/">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lamp/">lamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ngmessages/">ngmessages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python学习/">python学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-破解/">sublime text 破解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime-text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symfony/">symfony</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symfony3/">symfony3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows10/">windows10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/折腾/">折腾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络转载/">网络转载</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AOL/" style="font-size: 10px;">AOL</a> <a href="/tags/AutoCAD安装/" style="font-size: 10px;">AutoCAD安装</a> <a href="/tags/AutoCAD错误/" style="font-size: 10px;">AutoCAD错误</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Github-Pages建立博客/" style="font-size: 10px;">Github Pages建立博客</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Google-Chrome/" style="font-size: 13.33px;">Google Chrome</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Sublime-Text-3/" style="font-size: 10px;">Sublime Text 3</a> <a href="/tags/Ubuntu-Sub-process-错误/" style="font-size: 10px;">Ubuntu Sub-process 错误</a> <a href="/tags/Ubuntu建立程序快捷方式/" style="font-size: 10px;">Ubuntu建立程序快捷方式</a> <a href="/tags/angular-material/" style="font-size: 10px;">angular-material</a> <a href="/tags/angularjs/" style="font-size: 16.67px;">angularjs</a> <a href="/tags/apache/" style="font-size: 13.33px;">apache</a> <a href="/tags/error-C2275/" style="font-size: 10px;">error C2275</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homestead/" style="font-size: 10px;">homestead</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/lamp/" style="font-size: 10px;">lamp</a> <a href="/tags/ngmessages/" style="font-size: 10px;">ngmessages</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/python学习/" style="font-size: 10px;">python学习</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/sublime-text-破解/" style="font-size: 10px;">sublime text 破解</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime-text</a> <a href="/tags/symfony/" style="font-size: 16.67px;">symfony</a> <a href="/tags/symfony3/" style="font-size: 13.33px;">symfony3</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/windows10/" style="font-size: 10px;">windows10</a> <a href="/tags/代码/" style="font-size: 10px;">代码</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/折腾/" style="font-size: 20px;">折腾</a> <a href="/tags/网络转载/" style="font-size: 10px;">网络转载</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/8/17/Sublime-Text-配置JavaScript-PHP-build-system/">[Sublime Text] 配置JavaScript, PHP build system</a>
-          </li>
-        
-          <li>
-            <a href="/2016/8/4/Ubuntu-16-04-配置-LAMP-环境（PHP7）/">Ubuntu 16.04 配置 LAMP 环境（PHP7）</a>
-          </li>
-        
-          <li>
-            <a href="/2016/7/1/JavaScript-获取当前时间并转换为-UTC-时间字符串/">[JavaScript] 获取当前时间并转换为 UTC 时间字符串</a>
-          </li>
-        
-          <li>
-            <a href="/2016/6/7/Behat-Selenium-设置-Chrome-为默认浏览器-amp-更改窗口大小为Maximize/">[Behat] Selenium 设置 Chrome 为默认浏览器 &amp;amp; 更改窗口大小为Maximize</a>
-          </li>
-        
-          <li>
-            <a href="/2016/6/2/AngularJS-重置表单class-ng-dirty/">[AngularJS] 重置表单class ng-dirty</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 cangzhang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+block pagination
+  +paginator('archive')
