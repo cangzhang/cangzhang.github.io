@@ -1,13 +1,617 @@
-extends partial/layout
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WiiBe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="WiiBe">
+<meta property="og:url" content="http://wiibe.xyz/page/2/index.html">
+<meta property="og:site_name" content="WiiBe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WiiBe">
+  
+    <link rel="alternate" href="/atom.xml" title="WiiBe" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
 
-include mixins/container
-include mixins/paginator
+</head>
 
-block title
-  title= config.title
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">WiiBe</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Try to be a better man.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wiibe.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Symfony-生成-setters-getters-遇到-Too-many-arguments-错误解决方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/5/1/Symfony-生成-setters-getters-遇到-Too-many-arguments-错误解决方法/" class="article-date">
+  <time datetime="2016-05-01T14:42:49.000Z" itemprop="datePublished">2016-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/5/1/Symfony-生成-setters-getters-遇到-Too-many-arguments-错误解决方法/">[Symfony]生成 setters/getters 遇到 Too many arguments 错误解决方法</a>
+    </h1>
+  
 
-block container
-  +home()
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>输入 <code>php bin/console doctrine:generate:entity myBundle:MyEntity</code> 后一直提示如下错误：</p>
+<blockquote>
+<p>[SymfonyComponentConsoleExceptionRuntimeException]   Too many<br>arguments.</p>
+</blockquote>
+<p>搜了一圈stackoverflow，后来试了一个命令：</p>
+<pre><code>php bin/console cache:clear
+</code></pre><p>问题就这样解决了0.0</p>
+<p>//如果使用的 <code>Symfony2</code> 那么上面的 <code>bin/console</code> 应该换成  <code>app/console</code></p>
 
-block pagination
-  +paginator('home')
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/5/1/Symfony-生成-setters-getters-遇到-Too-many-arguments-错误解决方法/" data-id="ciubf829y0011j0559361wq3f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/symfony3/">symfony3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Symfony3-删除默认bundle-AppBundle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/5/1/Symfony3-删除默认bundle-AppBundle/" class="article-date">
+  <time datetime="2016-05-01T11:22:10.000Z" itemprop="datePublished">2016-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/5/1/Symfony3-删除默认bundle-AppBundle/">[Symfony3]删除默认bundle(AppBundle)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>删除 <code>app\AppKernel.php</code>的 <code>registerBundles()</code> 相应 <code>appBundle</code> 部分.</p>
+</li>
+<li><p>删除<code>app\config\routing.yml</code> 中 <code>appBundle</code> 相应部分.</p>
+</li>
+<li><p>删除<code>src</code>目录下整个<code>appBundle</code>文件夹.</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/5/1/Symfony3-删除默认bundle-AppBundle/" data-id="ciubf829u000yj055k6d5redq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/symfony3/">symfony3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Grub-Rescue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/4/28/Grub-Rescue/" class="article-date">
+  <time datetime="2016-04-28T04:49:52.000Z" itemprop="datePublished">2016-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/4/28/Grub-Rescue/">Grub Rescue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>grub rescue&gt;</p>
+<pre><code>ls
+
+ls (hd0,x)/boot/grub
+
+set root=(hd0,x)
+
+set prefix=(hd0,x)/boot/grub
+
+insmod normal
+
+normal
+
+sudo update-grub
+
+sudo apt-get install grub-efi
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/4/28/Grub-Rescue/" data-id="ciubf828y000ej055icl7o69a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub2/">grub2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Windows-下挂载EFI分区" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/4/28/Windows-下挂载EFI分区/" class="article-date">
+  <time datetime="2016-04-28T04:10:12.000Z" itemprop="datePublished">2016-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/4/28/Windows-下挂载EFI分区/">Windows 下挂载EFI分区</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以管理员身份运行<code>cmd</code>， 输入：</p>
+<pre><code>diskpart
+list disk
+sel disk x
+list part
+sel part x //ESP分区
+ass //挂载并分配盘符
+</code></pre><p>接下来管理员权限运行编辑器就可以打开分区目录进行修改了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/4/28/Windows-下挂载EFI分区/" data-id="ciubf82a70017j0555knf7zeo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows10/">windows10</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AngularJS-ngMesages" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/4/12/AngularJS-ngMesages/" class="article-date">
+  <time datetime="2016-04-12T14:56:49.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/4/12/AngularJS-ngMesages/">[AngularJS] ngMesages</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于 <code>ngMessages</code> 官方文档地址 <a href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages" target="_blank" rel="external">在这里</a>，可是却非常不详细，只列出了三种情况<code>required</code>、<code>minlength</code>、<code>maxlength</code>.<br>如果在 <code>element</code> 里写了自己定义的规则 <code>ng-pattern</code>，需要给出当正则生效时给出的 <code>ngMessage</code>，就需要这样写：</p>
+<pre><code>&amp;lt;form name=&quot;myForm&quot;&amp;gt;
+  &amp;lt;label&amp;gt;
+    &amp;lt;input name=&quot;myField&quot;
+            type=&quot;text&quot;
+            ng-model=&quot;myName&quot;
+            ng-pattern=&quot;/{expression}/&quot;
+            /&amp;gt;
+    &amp;lt;/label&amp;gt;
+  &amp;lt;div ng-messages=&quot;myForm.myField.$error&quot;&amp;gt;
+    &amp;lt;div ng-message=&quot;minlength&quot;&amp;gt;...&amp;lt;/div&amp;gt;
+    &amp;lt;div ng-message=&quot;pattern&quot;&amp;gt;...&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/form&amp;gt;`&lt;/pre&gt;
+
+一种调试的方法：
+
+&lt;pre&gt;`&amp;lt;pre&amp;gt;{{myForm.myField.$error}}&amp;lt;/pre&amp;gt;
+//错误内容形式：{ &quot;pattern&quot;: true }
+</code></pre><p>这样的话直观地看到错误内容，相应的指定错误消息了</p>
+<p>参考内容：<br><a href="http://www.sitepoint.com/easy-form-validation-angularjs-ngmessages/" target="_blank" rel="external">Easy Form Validation in AngularJS with ngMessages</a><br><a href="http://blog.thoughtram.io/2015/06/06/ng-messages-revisited.html" target="_blank" rel="external">ngMessages revisited</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/4/12/AngularJS-ngMesages/" data-id="ciubf828d0003j055nullezfn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs/">angularjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ngmessages/">ngmessages</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript-字符型转换为布尔型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/4/6/JavaScript-字符型转换为布尔型/" class="article-date">
+  <time datetime="2016-04-06T10:15:17.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/4/6/JavaScript-字符型转换为布尔型/">[JavaScript]字符型转换为布尔型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原格式为：</p>
+<pre><code>{
+    &quot;a&quot;: &quot;1&quot;,
+    &quot;b&quot;: &quot;0&quot;
+}`&lt;/pre&gt;
+
+目标格式：
+
+&lt;pre&gt;`{
+    &quot;a&quot;: true,
+    &quot;b&quot;: false
+}`&lt;/pre&gt;
+
+关键语句：
+
+&lt;pre&gt;`var arr = [];
+for (var i in obj){
+            var  temp  =  {};
+            temp.a = i;
+            temp.value = !!parseInt(obj[i]);
+
+           arr.push(temp);
+        }
+return arr;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/4/6/JavaScript-字符型转换为布尔型/" data-id="ciubf8295000jj05593ontfm6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JSON数据遍历，并转变形式输出" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/4/6/JSON数据遍历，并转变形式输出/" class="article-date">
+  <time datetime="2016-04-06T10:09:13.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/4/6/JSON数据遍历，并转变形式输出/">JSON数据遍历，并转变形式输出</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码如下：</p>
+<pre><code>var originParameters = {
+      &quot;5&quot;: {
+          &quot;4&quot;: 5,
+          &quot;5&quot;: &quot;1&quot;,
+          &quot;6&quot;: &quot;1&quot;,
+          &quot;10&quot;: &quot;1&quot;
+      }
+};
+
+var arr = originParameters[5];
+console.log(arr);
+console.log(&quot;------&quot;);
+var FieldParameters = [];
+for (var i in arr){
+  var  temp  =  {};
+  temp.FieldParameterId = i;
+  temp.value = arr[i];
+  FieldParameters.push(temp);
+}
+console.log(FieldParameters);
+console.log(&quot;------&quot;);
+//console.log(JSON.stringify(FieldParameters));
+console.log(&quot;------&quot;);
+
+var $scope = {};
+$scope.formData = {};
+$scope.formData.AttributeParameters = FieldParameters;
+console.log($scope.formData);
+</code></pre><p>输出结果如下：<br><img src="/img/bVuDVy" alt="Output" title="Output"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/4/6/JSON数据遍历，并转变形式输出/" data-id="ciubf8293000hj0558rl6p14i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Homestead-配置文件设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/4/2/Homestead-配置文件设置/" class="article-date">
+  <time datetime="2016-04-02T02:26:16.000Z" itemprop="datePublished">2016-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/4/2/Homestead-配置文件设置/">Homestead 配置文件设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>内容如下，主要是共享目录的挂载：</p>
+<pre><code>---
+ip: &quot;192.168.10.10&quot;
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: D:/projects/stuTrac
+      to: /home/vagrant/Code
+
+    - map: D:/projects
+      to: /home/projects
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/public
+
+databases:
+    - homestead
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wiibe.xyz/2016/4/2/Homestead-配置文件设置/" data-id="ciubf8291000fj055p6beq51e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/homestead/">homestead</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOL/">AOL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD安装/">AutoCAD安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoCAD错误/">AutoCAD错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Pages建立博客/">Github Pages建立博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Chrome/">Google Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text-3/">Sublime Text 3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-Sub-process-错误/">Ubuntu Sub-process 错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu建立程序快捷方式/">Ubuntu建立程序快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-material/">angular-material</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-C2275/">error C2275</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grub2/">grub2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homestead/">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lamp/">lamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ngmessages/">ngmessages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python学习/">python学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-破解/">sublime text 破解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime-text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symfony/">symfony</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symfony3/">symfony3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows10/">windows10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/折腾/">折腾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络转载/">网络转载</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AOL/" style="font-size: 10px;">AOL</a> <a href="/tags/AutoCAD安装/" style="font-size: 10px;">AutoCAD安装</a> <a href="/tags/AutoCAD错误/" style="font-size: 10px;">AutoCAD错误</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Github-Pages建立博客/" style="font-size: 10px;">Github Pages建立博客</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Google-Chrome/" style="font-size: 13.33px;">Google Chrome</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Sublime-Text-3/" style="font-size: 10px;">Sublime Text 3</a> <a href="/tags/Ubuntu-Sub-process-错误/" style="font-size: 10px;">Ubuntu Sub-process 错误</a> <a href="/tags/Ubuntu建立程序快捷方式/" style="font-size: 10px;">Ubuntu建立程序快捷方式</a> <a href="/tags/angular-material/" style="font-size: 10px;">angular-material</a> <a href="/tags/angularjs/" style="font-size: 16.67px;">angularjs</a> <a href="/tags/apache/" style="font-size: 13.33px;">apache</a> <a href="/tags/error-C2275/" style="font-size: 10px;">error C2275</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homestead/" style="font-size: 10px;">homestead</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/lamp/" style="font-size: 10px;">lamp</a> <a href="/tags/ngmessages/" style="font-size: 10px;">ngmessages</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/python学习/" style="font-size: 10px;">python学习</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/sublime-text-破解/" style="font-size: 10px;">sublime text 破解</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime-text</a> <a href="/tags/symfony/" style="font-size: 16.67px;">symfony</a> <a href="/tags/symfony3/" style="font-size: 13.33px;">symfony3</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/windows10/" style="font-size: 10px;">windows10</a> <a href="/tags/代码/" style="font-size: 10px;">代码</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/折腾/" style="font-size: 20px;">折腾</a> <a href="/tags/网络转载/" style="font-size: 10px;">网络转载</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">六月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">二月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/8/17/Sublime-Text-配置JavaScript-PHP-build-system/">[Sublime Text] 配置JavaScript, PHP build system</a>
+          </li>
+        
+          <li>
+            <a href="/2016/8/4/Ubuntu-16-04-配置-LAMP-环境（PHP7）/">Ubuntu 16.04 配置 LAMP 环境（PHP7）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/7/1/JavaScript-获取当前时间并转换为-UTC-时间字符串/">[JavaScript] 获取当前时间并转换为 UTC 时间字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/6/7/Behat-Selenium-设置-Chrome-为默认浏览器-amp-更改窗口大小为Maximize/">[Behat] Selenium 设置 Chrome 为默认浏览器 &amp;amp; 更改窗口大小为Maximize</a>
+          </li>
+        
+          <li>
+            <a href="/2016/6/2/AngularJS-重置表单class-ng-dirty/">[AngularJS] 重置表单class ng-dirty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 cangzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
